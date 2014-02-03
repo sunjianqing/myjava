@@ -36,10 +36,12 @@ public class LargestContinuousSum {
         for(int pos = 1; pos < numbers.length ; pos++){
 
             if(currentMax + numbers[pos] > numbers[pos]){
+                // numbers[pos] 以前的数加上 numbers[pos] 没有导致连续和减小
                 currentMax = currentMax + numbers[pos];
                 end = pos;
             }
             else {
+                // numbers[pos] 比以前连续和还大， 所以以前的可以不要了， 设立新的currentMax
                 currentMax =  numbers[pos];
                 start = pos;
                 end = pos;
