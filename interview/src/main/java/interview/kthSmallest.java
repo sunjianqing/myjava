@@ -7,7 +7,7 @@ package interview;
  * Time: 3:45 PM
  * To change this template use File | Settings | File Templates.
  */
-public class KthSmallest {
+public class kthSmallest {
 
     public int[] a = new int[]{2, 4, 5, 7, 9};
     public int[] b = new int[]{1, 3, 5, 6, 12, 13};
@@ -49,7 +49,7 @@ public class KthSmallest {
     }
 
     public static void main(String[] args){
-        KthSmallest ks = new KthSmallest();
+        kthSmallest ks = new kthSmallest();
         int solution =  ks.solution(ks.a,ks.b,7);
         System.out.println(solution);
 
