@@ -1,4 +1,4 @@
-package interview;
+package com.jianqing.interview;
 
 /**
  * Created with IntelliJ IDEA.

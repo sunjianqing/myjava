@@ -1,6 +1,8 @@
-package interview;
+package com.jianqing.interview;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 /**
  * Created with IntelliJ IDEA.

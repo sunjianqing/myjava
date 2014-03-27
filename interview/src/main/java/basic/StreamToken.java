@@ -7,7 +7,10 @@ package basic;
  * Time: 5:31 PM
  * To change this template use File | Settings | File Templates.
  */
-import java.io.*;
+
+import java.io.IOException;
+import java.io.StreamTokenizer;
+import java.io.StringReader;
 
 public class StreamToken {
     public static void main(String[] args) throws IOException {
