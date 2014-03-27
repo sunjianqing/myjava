@@ -1,4 +1,4 @@
-package interview;
+package com.jianqing.interview;
 
 import java.util.ArrayList;
 import java.util.Iterator;
