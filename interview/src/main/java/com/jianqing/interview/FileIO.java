@@ -1,4 +1,4 @@
-package interview;
+package com.jianqing.interview;
 
 import java.io.*;
 import java.util.Scanner;
