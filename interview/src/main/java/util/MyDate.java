@@ -10,8 +10,8 @@ import java.util.Date;
 public class MyDate {
     public static void main(String[] args) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-        Date d = (Date)format.parse("04/10/2014");
-        System.out.println(d.getTime());
+        Date d = (Date)format.parse("05/07/2014");
+        System.out.println(d.getTime() / 1000);
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date dateNow = new Date();
