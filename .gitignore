@@ -5,4 +5,5 @@
 *.war
 *.ear
 *.iml
-*.idea
+# folder
+.idea/
