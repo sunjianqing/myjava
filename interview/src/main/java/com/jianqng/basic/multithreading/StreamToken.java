@@ -1,4 +1,4 @@
-package basic;
+package com.jianqng.basic.multithreading;
 
 /**
  * Created with IntelliJ IDEA.
