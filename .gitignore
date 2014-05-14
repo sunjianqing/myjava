@@ -5,3 +5,8 @@
 *.war
 *.ear
 *.iml
+# Intellij folder
+.idea/
+*.iml
+.idea/uiDesigner.xml
+*.iws
