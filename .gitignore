@@ -8,5 +8,8 @@
 # Intellij folder
 .idea/
 *.iml
-.idea/uiDesigner.xml
 *.iws
+
+# Maven
+log/
+target/
