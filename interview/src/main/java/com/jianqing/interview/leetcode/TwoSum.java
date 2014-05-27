@@ -1,4 +1,4 @@
-package com.jianqing.interview;
+package com.jianqing.interview.leetcode;
 
 import java.util.HashMap;
 
