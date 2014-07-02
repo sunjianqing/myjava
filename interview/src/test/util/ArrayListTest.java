@@ -2,6 +2,8 @@ package util;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,6 +15,9 @@ import java.util.Iterator;
 public class ArrayListTest {
     public static void main(String[] args){
         ArrayList<Integer> al = new ArrayList<Integer>();
+
+        List list = new LinkedList();
+        
         al.add(0,1);
         al.add(0,1);
         //al.remove(1);

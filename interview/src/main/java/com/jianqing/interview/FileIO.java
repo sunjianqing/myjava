@@ -8,7 +8,14 @@ import java.util.Scanner;
  */
 public class FileIO {
     public static void main(String[] args){
+        System.out.println("Working Directory = " +
+                System.getProperty("user.dir"));
+        FileIO io = new FileIO();
+        io.printResourcesPath();
+    }
 
+    public void printResourcesPath(){
+        System.out.print(getClass().getClassLoader().getResource("data.txt"));
     }
 
     public void read(String fileName){
