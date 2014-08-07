@@ -15,12 +15,12 @@ public class ValidateBinarySearchTree {
         }
         else{
             if(root.left != null){
-                result = result && root.value > root.left.value;
+                result = result && root.val > root.left.val;
                 result = result && isValidBST(root.left);
             }
 
             if(root.right != null){
-                result = result && root.value < root.right.value;
+                result = result && root.val < root.right.val;
                 result = result && isValidBST(root.right);
             }
         }

@@ -63,7 +63,7 @@ public class PathSum {
     public void solution(TreeNode tn, int sum){
         queue.enqueue(tn);
         if(tn.left == null && tn.right == null){
-            if(tn.value == sum ){
+            if(tn.val == sum ){
                 if (queue.hasItems()){
                     queue.print();
                     System.out.println();
@@ -73,11 +73,11 @@ public class PathSum {
         }
 
         if(tn.left != null){
-            solution(tn.left, sum - tn.value);
+            solution(tn.left, sum - tn.val);
             queue.dequeueFromEntry();
         }
         if(tn.right != null)   {
-            solution(tn.right, sum - tn.value);
+            solution(tn.right, sum - tn.val);
             queue.dequeueFromEntry();
         }
 

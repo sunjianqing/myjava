@@ -10,13 +10,15 @@ package util;
 public class TreeNode {
     public TreeNode left;
     public TreeNode right;
-    public int value;
+    public int val;
 
     public TreeNode(int val){
-        value = val;
+        this.val = val;
     }
 
+    /*
     public String toString(){
-        return String.valueOf(value);
+        return String.valueOf(val);
     }
+    */
 }

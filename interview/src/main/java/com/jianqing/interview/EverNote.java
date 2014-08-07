@@ -20,7 +20,7 @@ public class EverNote {
             for(String s : str.split("[\\s\\,\\.\\\"\\\']+")){ // you can add more punctuation to the regex
                 Node node;
                 if(map.containsKey(s)){
-                    //if word already exists, increase the hash value.
+                    //if word already exists, increase the hash val.
                     int cnt = map.get(s)+1;
                     node = new Node(map.get(s)+1, s);
                     map.put(s, cnt);
