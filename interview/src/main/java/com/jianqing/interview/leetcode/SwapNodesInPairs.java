@@ -8,20 +8,40 @@ import java.util.List;
 public class SwapNodesInPairs {
 
     public ListNode swapPairs(ListNode head) {
-        if(head == null || head.next == null ){
+        if(head == null || head.next == null){
             return head;
         }
 
+        ListNode n0 = new ListNode(0);
+
+        n0.next = head;
+
+        ListNode re = n0;
+
         ListNode n1 = head;
         ListNode n2 = head.next;
-        head = n2;
+
+        n0.next = n2;
 
         while(n1 != null && n2 != null){
+            n0.next = n2;
+            ListNode tmp = n2.next;
 
+            n2.next = n1;
+            n1.next = tmp;
 
+            n1 = tmp;
+            if(tmp != null){
+                n2 = tmp.next;
+            }
+            else
+                n2 = null;
+
+            n0 = n0.next.next;
 
         }
-        return head;
+
+        return re.next;
     }
 
     public static void main(String[] args){

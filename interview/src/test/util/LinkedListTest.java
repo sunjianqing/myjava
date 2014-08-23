@@ -10,7 +10,7 @@ import java.util.LinkedList;
 public class LinkedListTest {
     public static void main(String[] args){
         LinkedList<String> list = new LinkedList<String>();
-        list.addLast("a");
+        list.add("a");
         list.addLast("b");
         list.addLast("c");
 
@@ -19,6 +19,8 @@ public class LinkedListTest {
         // print out a,b,c,d
         System.out.println(list);
 
+        list.remove();
+        System.out.println("Remaining list is \n" + list);
         System.out.println("================");
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
