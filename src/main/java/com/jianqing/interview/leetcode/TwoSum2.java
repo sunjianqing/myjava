@@ -28,7 +28,7 @@ public class TwoSum2 {
 
     public static void main(String[] args){
         TwoSum2 ts = new TwoSum2();
-        ts.twoSum(new int[]{3,2,4}, 6);
+        int[] ints = ts.twoSum(new int[]{3, 2, 4}, 6);
 
     }
 }
