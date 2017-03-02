@@ -4,7 +4,9 @@ import com.jianqing.interview.leetcode.TreeNode;
 
 import java.util.Stack;
 
-/**
+
+/*
+ * Give you a preorder array , generate a BST
  * Created by jianqing_sun on 2/27/17.
  */
 public class PreorderToBST {
