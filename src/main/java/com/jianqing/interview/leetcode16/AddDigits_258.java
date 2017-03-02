@@ -26,7 +26,6 @@ public class AddDigits_258 implements Solution {
                 }
             }
         }
-
         return sum;
 
     }

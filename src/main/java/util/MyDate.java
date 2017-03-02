@@ -22,5 +22,9 @@ public class MyDate {
         System.out.println(text.matches("[01]\\d/[0-3]\\d/\\d{4}"));
 
 
+        int dd = (int)Math.round(5/2.0);
+
+        System.out.println(dd);
+
     }
 }
