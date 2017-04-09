@@ -1,5 +1,7 @@
 package com.jianqing.interview.leetcode;
 
+import com.jianqing.interview.base.TreeNode;
+
 /**
  * Created by jianqsun on 8/6/14.
  */
