@@ -37,6 +37,4 @@ public class AllSubSets {
         System.out.println("");
         return;
     }
-
-
 }
