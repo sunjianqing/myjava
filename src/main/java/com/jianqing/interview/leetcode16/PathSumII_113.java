@@ -45,7 +45,7 @@ public class PathSumII_113 {
 
         List<List<Integer>> res = new ArrayList<List<Integer>>();
 
-        if ( root == null )
+        if (root == null)
             return res;
         ArrayList<Integer> list = new ArrayList<>();
 
@@ -54,28 +54,57 @@ public class PathSumII_113 {
         return res;
     }
 
-    public void helper(List<List<Integer>> res, ArrayList<Integer> list, TreeNode node, int sum) {
+    public void helper(List<List<Integer>> res, ArrayList<Integer> solution, TreeNode root, int sum) {
 
-        if (node == null)
+        if (root == null)
             return;
 
-        sum -= node.val;
-
-        if (node.right == null && node.left == null) {
+        sum -= root.val;
+        solution.add(root.val);
+        if (root.right == null && root.left == null) {
             if (sum == 0) {
-                list.add(node.val);
-                List<Integer> newList = new ArrayList<Integer>(list);
-                res.add(newList);
-                list.remove(list.size()-1);
+                res.add(new ArrayList<Integer>(solution));
             }
+        } else {
+            helper(res, solution, root.left, sum);
+            helper(res, solution, root.right, sum);
+        }
+        solution.remove(solution.size() - 1);
+    }
 
-            return;
+
+    public List<ArrayList<Integer>> pathSum2(TreeNode root, int sum) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+        if (root == null)
+            return result;
+
+        ArrayList<Integer> l = new ArrayList<Integer>();
+        l.add(root.val);
+        dfs(root, sum - root.val, result, l);
+        return result;
+    }
+
+    public void dfs(TreeNode t, int sum, ArrayList<ArrayList<Integer>> result, ArrayList<Integer> l) {
+        if (t.left == null && t.right == null && sum == 0) {
+            ArrayList<Integer> temp = new ArrayList<Integer>();
+            temp.addAll(l);
+            result.add(temp);
         }
 
-        list.add(node.val);
-        helper(res, list, node.left, sum);
-        helper(res, list, node.right, sum);
-        list.remove(list.size() - 1);
+        //search path of left node
+        if (t.left != null) {
+            l.add(t.left.val);
+            dfs(t.left, sum - t.left.val, result, l);
+            l.remove(l.size() - 1);
+        }
 
+        //search path of right node
+        if (t.right != null) {
+            l.add(t.right.val);
+            dfs(t.right, sum - t.right.val, result, l);
+            l.remove(l.size() - 1);
+        }
     }
+
+
 }
