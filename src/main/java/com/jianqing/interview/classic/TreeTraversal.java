@@ -2,6 +2,8 @@ package com.jianqing.interview.classic;
 
 import com.jianqing.interview.base.TreeNode;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -29,5 +31,25 @@ public class TreeTraversal {
             }
         }
 
+    }
+
+    /*
+        Inorder Traversal 模板 可用于 validate bst， 找kth smallest number
+     */
+    public List Inorder(TreeNode root){
+        List<Integer> list = new ArrayList<>();
+        if(root == null) return list;
+        Stack<TreeNode> stack = new Stack<>();
+        while(root != null || !stack.empty()){
+            while(root != null){
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            list.add(root.val);
+            root = root.right;
+
+        }
+        return list;
     }
 }
