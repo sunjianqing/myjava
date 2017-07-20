@@ -1,4 +1,4 @@
-package com.jianqing.interview.leetcode;
+package com.jianqing.interview.base;
 
 /**
  * Created by jianqsun on 5/15/14.
