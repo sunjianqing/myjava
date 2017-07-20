@@ -1,5 +1,7 @@
 package com.jianqing.interview.leetcode16;
 
+import com.jianqing.interview.base.Interval;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -32,13 +34,5 @@ public class MeetingRooms_252 {
 
     }
 
-    class Interval {
-        int start;
-        int end;
 
-        public Interval(int start, int end) {
-            this.start = start;
-            this.end = end;
-        }
-    }
 }
