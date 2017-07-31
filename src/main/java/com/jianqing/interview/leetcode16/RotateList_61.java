@@ -1,6 +1,6 @@
 package com.jianqing.interview.leetcode16;
 
-import com.jianqing.interview.leetcode.ListNode;
+import com.jianqing.interview.base.ListNode;
 
 /**
  * Created by jianqing_sun on 6/19/17.

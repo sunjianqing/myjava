@@ -1,7 +1,7 @@
 package com.jianqing.interview.base;
 
 /**
- * Created by jianqingsun on 7/30/17.
+ * Created by jianqsun on 5/15/14.
  */
 public class ListNode {
     public int val;
