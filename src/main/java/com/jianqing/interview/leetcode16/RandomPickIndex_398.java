@@ -1,15 +1,18 @@
 package com.jianqing.interview.leetcode16;
 
+import java.util.Random;
+
 /**
  * Created by jianqingsun on 1/3/17.
  */
-public class RandomPickIndex_398 implements Solution {
+public class RandomPickIndex_398 {
 
     public int[] nums;
+    Random rand = new Random();
 
-    @Override
-    public void solution() {
-
+    public void RandomPickIndex_398(int[] nums) {
+        this.nums = nums;
+        this.rand = new Random();
     }
 
     /*
@@ -20,6 +23,16 @@ public class RandomPickIndex_398 implements Solution {
         
      */
     public int pick(int target) {
-        return 0;
+        int res = -1;
+        int cnt = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i] == target) {
+                cnt++;
+                int r = rand.nextInt(cnt);
+                res = r == 0 ? i : res; // if 0 , replace res with index
+            }
+        }
+
+        return res;
     }
 }

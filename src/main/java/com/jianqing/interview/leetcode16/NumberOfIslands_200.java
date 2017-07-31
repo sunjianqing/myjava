@@ -2,6 +2,8 @@ package com.jianqing.interview.leetcode16;
 
 /**
  * Created by jianqing_sun on 3/30/17.
+ * DFS 找到置0
+ *
  */
 public class NumberOfIslands_200 {
 

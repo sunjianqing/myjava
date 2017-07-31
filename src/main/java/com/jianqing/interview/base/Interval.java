@@ -1,4 +1,4 @@
-package util;
+package com.jianqing.interview.base;
 
 /**
  * Created by jianqing_sun on 1/25/17.

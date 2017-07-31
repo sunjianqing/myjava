@@ -36,12 +36,12 @@ public class TreeTraversal {
     /*
         Inorder Traversal 模板 可用于 validate bst， 找kth smallest number
      */
-    public List Inorder(TreeNode root){
+    public List Inorder(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        if(root == null) return list;
+        if (root == null) return list;
         Stack<TreeNode> stack = new Stack<>();
-        while(root != null || !stack.empty()){
-            while(root != null){
+        while (root != null || !stack.empty()) {
+            while (root != null) {
                 stack.push(root);
                 root = root.left;
             }
@@ -51,5 +51,29 @@ public class TreeTraversal {
 
         }
         return list;
+    }
+
+    public List Inorder2(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+
+        if (root == null) {
+            return res;
+        }
+
+        TreeNode current = root;
+        Stack<TreeNode> stack = new Stack<>();
+        while( root != null || !stack.isEmpty()) {
+            if(current != null) {
+                stack.push(current);
+                current = current.left;
+            }
+            else {
+                TreeNode tmp = stack.pop();
+                res.add(tmp.val);
+                current = tmp.right;
+            }
+        }
+
+        return res;
     }
 }

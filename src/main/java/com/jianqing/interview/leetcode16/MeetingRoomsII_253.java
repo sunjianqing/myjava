@@ -1,6 +1,6 @@
 package com.jianqing.interview.leetcode16;
 
-import util.Interval;
+import com.jianqing.interview.base.Interval;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -8,9 +8,11 @@ import java.util.PriorityQueue;
 
 /**
  * Created by jianqing_sun on 1/25/17.
+ *
+ * // http://www.jyuan92.com/blog/leetcode-meeting-rooms-ii/
+ //https://segmentfault.com/a/1190000003894670
  */
 public class MeetingRoomsII_253 {
-    // http://www.jyuan92.com/blog/leetcode-meeting-rooms-ii/
     public int minMeetingRoomsWithConstantSpace(Interval[] intervals) {
         if (null == intervals || intervals.length == 0) {
             return 0;
