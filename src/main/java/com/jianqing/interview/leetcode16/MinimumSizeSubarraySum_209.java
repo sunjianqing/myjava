@@ -2,6 +2,8 @@ package com.jianqing.interview.leetcode16;
 
 /**
  * Created by jianqingsun on 4/25/17.
+ *
+ * 双指针
  */
 public class MinimumSizeSubarraySum_209 {
     public int minSubArrayLen(int s, int[] nums) {

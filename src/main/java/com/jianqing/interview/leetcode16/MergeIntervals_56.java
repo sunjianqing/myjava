@@ -1,6 +1,6 @@
 package com.jianqing.interview.leetcode16;
 
-import util.Interval;
+import com.jianqing.interview.base.Interval;
 
 import java.util.*;
 
