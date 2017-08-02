@@ -1,6 +1,6 @@
 package com.jianqing.interview.leetcode;
 
-import util.TreeNode;
+import com.jianqing.interview.base.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
