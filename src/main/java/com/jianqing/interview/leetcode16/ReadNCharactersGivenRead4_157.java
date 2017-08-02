@@ -5,4 +5,5 @@ package com.jianqing.interview.leetcode16;
  * http://blog.csdn.net/fantasiasango/article/details/52669281
  */
 public class ReadNCharactersGivenRead4_157 {
+
 }
