@@ -24,6 +24,7 @@ public class MeetingRoomsII_253 {
             }
         });
         PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
+
         int minRoom = 1;
         queue.offer(intervals[0].end);
         for (int i = 1; i < intervals.length; i++) {

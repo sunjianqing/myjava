@@ -16,7 +16,7 @@ public class TaskCoolDown {
     }
 
     public String solution(Character[] tasks, int cooldown) {
-        if(tasks == null || tasks.length == 0){
+        if (tasks == null || tasks.length == 0) {
             return "";
         }
 
@@ -24,19 +24,17 @@ public class TaskCoolDown {
         Map<Character, Integer> map = new HashMap<>();
         StringBuilder sb = new StringBuilder();
 
-        for(int i = 0 ; i < tasks.length ; i++){
-            if(!map.containsKey(tasks[i])) {
+        for (int i = 0; i < tasks.length; i++) {
+            if (!map.containsKey(tasks[i])) {
                 map.put(tasks[i], i);
                 sb.append(tasks[i]);
-            }
-            else{
+            } else {
                 // i - last index of task i
-                if(i - map.get(tasks[i]) > cooldown){
+                if (i - map.get(tasks[i]) > cooldown) {
                     sb.append(tasks[i]);
-                }
-                else{
+                } else {
                     int j = i;
-                    while(j - map.get(tasks[i])<=cooldown){
+                    while (j - map.get(tasks[i]) <= cooldown) {
                         sb.append("-");
                         j++;
                     }
