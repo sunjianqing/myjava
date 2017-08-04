@@ -12,6 +12,23 @@ public class LetterCombinationsofaPhoneNumber_17 {
         l.letterCombinations("23");
     }
 
+    // 最优解
+    public List<String> letterCombinations2(String digits) {
+        LinkedList<String> res = new LinkedList<String>();
+        String[] mapping = new String[]{"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        res.add("");
+        for (int i = 0; i < digits.length(); i++) {
+            int x = Character.getNumericValue(digits.charAt(i));
+            while (res.peek().length() == i) { // 只care 当前长度 i ， 不停的remove 后， peek 长度就不是i了, 也就可以退出while
+                String t = res.remove();
+                for (char s : mapping[x].toCharArray())
+                    res.add(t + s); // 加入下一轮
+            }
+        }
+        return res;
+    }
+
+
     public List<String> letterCombinations(String digits) {
         Map<Character, List<Character>> dict = new HashMap<>();
 
@@ -34,6 +51,7 @@ public class LetterCombinationsofaPhoneNumber_17 {
         return res;
     }
 
+    // exponent 指数级解法 dfs
     public void helper(int index, String digits, Map<Character, List<Character>> dict, StringBuffer sb, List<String> res) {
 
         if (index == digits.length()) {

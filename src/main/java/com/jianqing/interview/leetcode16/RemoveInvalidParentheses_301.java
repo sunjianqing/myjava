@@ -19,8 +19,6 @@ public class RemoveInvalidParentheses_301 implements Solution {
         如果没有符合的，继续去掉一个括号（相比于原字符串， 相当于去掉了两个括号），相当于BFS的又下一层，再进行验证，如果有符合的，
         就不用继续了。一直进行到底
 
-        http://www.guoting.org/leetcode/leetcode-301-remove-invalid-parentheses%E7%A7%BB%E9%99%A4%E6%97%A0%E6%95%88%E6%8B%AC%E5%8F%B7/
-
      */
     public List<String> removeInvalidParentheses(String s) {
         return null;
@@ -29,4 +27,5 @@ public class RemoveInvalidParentheses_301 implements Solution {
     /*
         DFS Solution
      */
+
 }

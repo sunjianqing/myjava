@@ -12,6 +12,23 @@ import java.util.Queue;
 public class SerializeDeserializeBinaryTree {
     private static final String dummy = "#";
 
+    public static void main(String[] args) {
+        SerializeDeserializeBinaryTree sdbt = new SerializeDeserializeBinaryTree();
+        TreeNode root = new TreeNode(5);
+        TreeNode node1 = new TreeNode(4);
+        TreeNode node2 = new TreeNode(3);
+        TreeNode node3 = new TreeNode(1);
+        root.left = node1;
+        root.right = node2;
+        node1.left = node3;
+
+        String serialize = sdbt.serialize(root);
+        System.out.println(serialize);
+
+        TreeNode droot = sdbt.deserialize(serialize);
+        System.out.println(droot.val);
+
+    }
     public String serialize(TreeNode root) {
         StringBuffer buffer = new StringBuffer();
         serialize(root, buffer);
@@ -23,7 +40,10 @@ public class SerializeDeserializeBinaryTree {
             sb.append((sb.length() == 0 ? "" : ",") + dummy);
             return;
         }
-
+        if(sb.length() !=0){
+            sb.append(",");
+        }
+        sb.append(node.val);
         serialize(node.left, sb);
         serialize(node.right, sb);
         return;

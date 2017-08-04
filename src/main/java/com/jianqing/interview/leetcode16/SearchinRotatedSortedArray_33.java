@@ -2,6 +2,21 @@ package com.jianqing.interview.leetcode16;
 
 /**
  * Created by jianqingsun on 4/7/17.
+ * http://www.cnblogs.com/ireneyanglan/p/4890848.html
+ * 总有一半是排好序的 ， 排好序的条件 是 比较 两端 的值 跟target 大小
+ *
+ * 1. red line (start < median)
+
+ 　　1.1 target < median && target >= start　　-> [ start --- mid ]
+
+ 　　1.2 else　　　　　　　　　　　　　　　　　    -> [ mid --- end ]
+
+ 2. green line (start > median)
+
+ 　　2.1 target > median && target <= end　　 -> [ mid --- end ]
+
+ 　　2.2 else　　　　　　　　　　　　　　　　　　-> [ start -- mid ]
+
  */
 public class SearchinRotatedSortedArray_33 {
 

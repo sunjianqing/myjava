@@ -17,6 +17,24 @@ public class MoveZeros {
         }
     }
 
+    public void moveZeroes(int[] nums) {
+        int zeroIndex = 0, i = 0;
+
+        // 将非0数字都尽可能向前排,但是没交换
+        for (; i< nums.length ; i ++){
+            if (nums[i] != 0 ){
+                nums[zeroIndex] = nums[i];
+                zeroIndex ++;
+            }
+        }
+
+        // 将剩余的都置0
+        for(;zeroIndex<nums.length; zeroIndex++){
+            nums[zeroIndex] = 0;
+        }
+    }
+
+
     public void solution(int[] array) {
         int p1 = 0, p2 = 0;
         while (p2 < array.length) {

@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by jianqsun on 8/6/14.
  */
-public class SubSet {
+public class SubSets {
 
     List<List<Integer>> res = new ArrayList<List<Integer>>();
 
@@ -33,7 +33,7 @@ public class SubSet {
 
     public static void main(String[] args) {
         int[] data = new int[]{1, 2, 3};
-        SubSet ss = new SubSet();
+        SubSets ss = new SubSets();
         ss.subsets(data);
     }
 

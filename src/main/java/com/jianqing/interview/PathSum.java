@@ -1,7 +1,7 @@
 package com.jianqing.interview;
 
+import com.jianqing.interview.base.TreeNode;
 import util.GenQueue;
-import util.TreeNode;
 
 /**
  * Created with IntelliJ IDEA.

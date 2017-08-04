@@ -1,6 +1,6 @@
 package com.jianqing.interview;
 
-import util.TreeNode;
+import com.jianqing.interview.base.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
