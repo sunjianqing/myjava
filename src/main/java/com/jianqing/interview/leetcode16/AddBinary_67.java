@@ -11,40 +11,17 @@ public class AddBinary_67 {
     }
     public String addBinary(String a, String b) {
 
-        if (a.length() < b.length()) {
-            //swap a, b
-            String tmp = b;
-            b = a;
-            a = tmp;
-        }
-
-        int la = a.length() - 1;
-        int lb = b.length() - 1;
-        String rst = "";
-
-        int carry = 0;
-        while (lb >= 0) {
-            int sum = (a.charAt(la) - '0') + (b.charAt(lb) - '0') + carry;
-            int currentBit = sum % 2;
+        StringBuilder sb = new StringBuilder();
+        int i = a.length() - 1, j = b.length() -1, carry = 0;
+        while (i >= 0 || j >= 0) {
+            int sum = carry;
+            if (j >= 0) sum += b.charAt(j--) - '0';
+            if (i >= 0) sum += a.charAt(i--) - '0';
+            sb.append(sum % 2);
             carry = sum / 2;
-            rst = String.valueOf(currentBit) + rst;
-            lb--;
-            la--;
         }
-
-        while (la >= 0) {
-            int sum = (a.charAt(la) - '0') + carry;
-            int currentBit = sum % 2;
-            carry = sum / 2;
-            rst = String.valueOf(currentBit) + rst;
-            la--;
-        }
-
-        if (carry > 0) {
-            rst = "1" + rst;
-        }
-
-        return rst;
+        if (carry != 0) sb.append(carry);
+        return sb.reverse().toString();
 
     }
 }
