@@ -26,6 +26,6 @@ public class MyTest {
 
         Queue<Integer> que = new LinkedList<>();
 
-
     }
+
 }

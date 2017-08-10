@@ -19,8 +19,6 @@ public class MaxSumKSubArray {
      *
      */
 
-
-
     // 下面这个可以省空间 ， 但是难懂
     public static int findNWindow(int[] nums, int k, int totalWindowNum){ // 长度都是k 的 n 个window ， 原题n = 3
         int[] lastMaxK = new int[nums.length];

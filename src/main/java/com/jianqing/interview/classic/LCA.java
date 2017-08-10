@@ -14,7 +14,6 @@ public class LCA  {
         if(root.val == val1 || root.val == val2){
             return root;
         }
-
         //分别在左右子树查找两个节点
         TreeNode left_lca = findLCA(root.left, val1, val2);
         TreeNode right_lca = findLCA(root.right, val1, val2);
