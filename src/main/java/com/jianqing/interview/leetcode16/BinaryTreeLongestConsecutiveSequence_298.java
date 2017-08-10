@@ -13,20 +13,20 @@ public class BinaryTreeLongestConsecutiveSequence_298 {
         if (root == null) {
             return 0;
         }
-
-        return helper(root.val -1 , 0, root);
+        
+        return helper(root.val - 1, 0, root);
     }
 
     public int helper(int pre, int len, TreeNode node) {
-        if(node == null)
+        if (node == null)
             return len;
 
 
         int curlen = 0;
-        if(node.val - 1 == pre){
+        // 判断当前是否连续
+        if (node.val - 1 == pre) {
             curlen = len + 1;
-        }
-        else {
+        } else {
             curlen = 1;
         }
 

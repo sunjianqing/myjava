@@ -24,6 +24,7 @@ public class OneEditDistance_161 {
                 if(s.charAt(i) != t.charAt(i)){
                     return s.charAt(i) == t.charAt(i+1);
                 }
+                i++;
             }
 
             return true;

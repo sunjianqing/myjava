@@ -47,7 +47,7 @@ public class KCloestPoints {
             return res;
         }
 
-        PriorityQueue queue = new PriorityQueue(k, new Comparator<Point>() {
+        PriorityQueue<Point> queue = new PriorityQueue(k, new Comparator<Point>() {
             @Override
             public int compare(Point o1, Point o2) {
                 int res = (o1.x * o1.x + o1.y * o1.y - (o2.x * o2.x + o2.y * o2.y));
@@ -63,12 +63,23 @@ public class KCloestPoints {
             }
         });
 
-        for(Point p: points){
-            queue.add(p);
+
+        for( int i = 0; i< points.size(); i++){
+            if(points.size() < k){
+                queue.offer(points.get(i));
+            }
+            else{
+                Point tmp = queue.peek();
+                if((points.get(i).x * points.get(i).x + points.get(i).y * points.get(i).y - (tmp.x * tmp.x - tmp.y*tmp.y)) < 0) {
+                    // 当前point 更近
+                    queue.poll();
+                    queue.offer(points.get(i));
+                }
+            }
         }
 
         while(!queue.isEmpty()){
-            res.add((Point) queue.poll());
+            res.add(queue.poll());
         }
 
         return res;
