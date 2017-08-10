@@ -31,6 +31,7 @@ public class SortColors_75 implements Solution {
             } else if(nums[i] == 2){
                 swap(nums, i, right);
                 right--;
+                // 换来的数 不知道是几， 所以right-- 后 i不能动
             } else {
                 // 遇到1跳过
                 i++;
