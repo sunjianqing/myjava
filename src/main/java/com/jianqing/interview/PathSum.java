@@ -9,26 +9,26 @@ import util.GenQueue;
  * Date: 11/12/13
  * Time: 4:51 PM
  * To change this template use File | Settings | File Templates.
- *
- *  Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
- For example:
- Given the below binary tree and sum = 22,
-
-     5
-    / \
-   4   8
-  /   / \
- 11  13  4
-/  \      \
-7  2      5
-
- return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
+ * <p>
+ * Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+ * For example:
+ * Given the below binary tree and sum = 22,
+ * <p>
+ * 5
+ * / \
+ * 4   8
+ * /   / \
+ * 11  13  4
+ * /  \      \
+ * 7  2      5
+ * <p>
+ * return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
  */
 public class PathSum {
 
     public GenQueue<TreeNode> queue = new GenQueue<TreeNode>();
 
-    public TreeNode buildTree(){
+    public TreeNode buildTree() {
 
         TreeNode tn = new TreeNode(5);
         TreeNode tn1 = new TreeNode(4);
@@ -52,19 +52,19 @@ public class PathSum {
         return tn;
     }
 
-    public  static  void main(String[] args){
-       PathSum ps = new PathSum();
-       TreeNode tn = ps.buildTree();
-       int sum = 22;
-       ps.solution(tn,22);
+    public static void main(String[] args) {
+        PathSum ps = new PathSum();
+        TreeNode tn = ps.buildTree();
+        int sum = 22;
+        ps.solution(tn, 22);
 
     }
 
-    public void solution(TreeNode tn, int sum){
+    public void solution(TreeNode tn, int sum) {
         queue.enqueue(tn);
-        if(tn.left == null && tn.right == null){
-            if(tn.val == sum ){
-                if (queue.hasItems()){
+        if (tn.left == null && tn.right == null) {
+            if (tn.val == sum) {
+                if (queue.hasItems()) {
                     queue.print();
                     System.out.println();
                 }
@@ -72,11 +72,11 @@ public class PathSum {
             return;
         }
 
-        if(tn.left != null){
+        if (tn.left != null) {
             solution(tn.left, sum - tn.val);
             queue.dequeueFromEntry();
         }
-        if(tn.right != null)   {
+        if (tn.right != null) {
             solution(tn.right, sum - tn.val);
             queue.dequeueFromEntry();
         }
