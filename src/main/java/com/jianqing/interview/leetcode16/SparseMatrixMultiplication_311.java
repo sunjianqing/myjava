@@ -3,7 +3,7 @@ package com.jianqing.interview.leetcode16;
 /**
  * Created by jianqingsun on 7/20/17.
  *
- * 稀疏矩阵 要等不适0 的时候再乘
+ * 稀疏矩阵 要等不是0 的时候再乘
  */
 public class SparseMatrixMultiplication_311 {
 
