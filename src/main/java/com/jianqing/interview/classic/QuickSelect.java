@@ -5,6 +5,17 @@ package com.jianqing.interview.classic;
  */
 public class QuickSelect {
 
+    public static void main(String[] args) {
+        QuickSelect qs = new QuickSelect();
+        int k = 2;
+        int[] nums =  new int[]{1, 4, 6, 2, 3, 12, 9, 4};
+        int n = qs.kthLargestElement(k, nums);
+        System.out.println(n);
+        for(int i = 0; i < k; i++){
+            System.out.print(nums[i]);
+        }
+    }
+
     //*********Recursive***********
 
     public int kthLargestElement(int k, int[] nums) {
@@ -15,9 +26,11 @@ public class QuickSelect {
         if (k <= 0) {
             return 0;
         }
-        return helper(nums, 0, nums.length - 1, nums.length - k + 1);
+        // 找第几大的 ， 就是 nums.length - k + 1 , 第几小的 就是 k
+        return helper(nums, 0, nums.length - 1, k );
 
     }
+
     public int helper(int[] nums, int l, int r, int k) {
         if (l == r) {
             return nums[l];
@@ -27,10 +40,11 @@ public class QuickSelect {
             return nums[position];
         } else if (position + 1 < k) {
             return helper(nums, position + 1, r, k);
-        }  else {
+        } else {
             return helper(nums, l, position - 1, k);
         }
     }
+
     public int partition(int[] nums, int l, int r) {
         // 初始化左右指针和pivot
         int left = l, right = r;
@@ -52,5 +66,6 @@ public class QuickSelect {
         nums[left] = pivot;
         return left;
     }
+
 
 }
