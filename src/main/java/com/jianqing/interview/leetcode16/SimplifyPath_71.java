@@ -1,13 +1,13 @@
 package com.jianqing.interview.leetcode16;
 
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by jianqing_sun on 6/15/17.
  */
 public class SimplifyPath_71 {
     public static void main(String[] args) {
-        SimplifyPath_71 sp  = new SimplifyPath_71();
+        SimplifyPath_71 sp = new SimplifyPath_71();
         System.out.println(sp.simplifyPath("/..."));
         System.out.println(sp.simplifyPath("/home/"));
         System.out.println(sp.simplifyPath("/a/./b/../../c/"));
@@ -15,6 +15,40 @@ public class SimplifyPath_71 {
         System.out.println(sp.simplifyPath("/a/./b/../c/"));
         System.out.println(sp.simplifyPath("/a/./b/c/"));
     }
+
+    public String solution(String path) {
+        if (path == null || path.length() == 0) {
+            return "";
+        }
+
+        String[] splits = path.split("/");
+        Stack<String> stack = new Stack<>();
+
+        Set<String> ignoreSets = new HashSet<>(Arrays.asList("", "..", "."));
+
+        for (int i = 0; i < splits.length; i++) {
+            if(!ignoreSets.contains(splits[i])){
+                stack.push(splits[i]);
+            }
+            else if(!stack.isEmpty() && splits[i].equals("..")){
+                stack.pop();
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+
+        if(stack.isEmpty())
+            return "/";
+
+        while(!stack.isEmpty()){
+            sb.insert(0, "/" + stack.pop());
+        }
+
+        return sb.toString();
+
+    }
+
     public String simplifyPath(String path) {
         if (path == null || path.length() == 0) {
             return "";
@@ -47,29 +81,27 @@ public class SimplifyPath_71 {
                         i = i + 2;
                         continue;
                     }
-                }
-                else
+                } else
                     i++;
             } else {
                 int j = i;
                 while (j < path.length()) {
-                    if(path.charAt(j) != '/' && path.charAt(j) != '.'){
+                    if (path.charAt(j) != '/' && path.charAt(j) != '.') {
                         j++;
                         continue;
-                    }
-                    else
+                    } else
                         break;
                 }
                 stack.push(path.substring(i, j));
                 i = j;
             }
         }
-        if(stack.isEmpty()){
+        if (stack.isEmpty()) {
             return "/";
         }
         StringBuilder sb = new StringBuilder("");
 
-        while (!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             sb.insert(0, "/" + stack.pop());
         }
 
