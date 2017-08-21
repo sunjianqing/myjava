@@ -30,7 +30,7 @@ public class LongestConsecutiveSequence_128 {
                 // keep track of the max length
                 res = Math.max(res, sum);
 
-                // extend the length to the boundary(s)
+                // extend the length to the boundary(s) 最远的那个需要更新下
                 // of the sequence
                 // will do nothing if n has no neighbors
                 map.put(n - left, sum);
