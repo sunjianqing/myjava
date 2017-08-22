@@ -4,13 +4,14 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Created by jianqingsun on 7/12/17.
- * BFS Toplogical 模板 拓扑排序模板
+ * Created by jianqingsun on 8/15/17.
  */
-public class CourseSchedule_207 {
-    public boolean canFinish(int numCourses, int[][] prerequisites) {
+public class CourseScheduleII_210 {
+    // course schedule ii
+    public int[] canFinish2(int numCourses, int[][] prerequisites) {
         int[][] graph = new int[numCourses][numCourses]; // i -> j
         int[] indegree = new int[numCourses];
+        int[] res = new int[numCourses];
 
         for (int i=0; i<prerequisites.length; i++) {
             int curr = prerequisites[i][0];
@@ -21,9 +22,13 @@ public class CourseSchedule_207 {
         }
 
         int count = 0;
+        int k = 0;
         Queue<Integer> queue = new LinkedList();
         for (int i=0; i<indegree.length; i++) {
-            if (indegree[i] == 0) queue.offer(i);
+            if (indegree[i] == 0) {
+                queue.offer(i);
+                res[k++] = i;
+            }
         }
 
         while (!queue.isEmpty()) {
@@ -31,14 +36,19 @@ public class CourseSchedule_207 {
             count++;
             for (int i=0; i<numCourses; i++) {
                 if (graph[course][i] != 0) {  // 有边
-                    if (--indegree[i] == 0)
+                    if (--indegree[i] == 0){
                         queue.offer(i);
+                        res[k++] = i;
+                    }
                 }
             }
         }
-        return count == numCourses;
+        if( count == numCourses) {
+            return res;
+        }
+        else {
+            return new int[0];
+        }
     }
-
-
 
 }
