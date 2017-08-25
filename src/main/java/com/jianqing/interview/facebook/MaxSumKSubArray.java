@@ -2,7 +2,7 @@ package com.jianqing.interview.facebook;
 
 /**
  * Created by jianqingsun on 7/29/17.
- * 找 sum最大，每个长度都是k 的 三个 subarray。 三个subarray不能有overlap。 举个栗子 1,2,1,2,6,7,5,1。k = 2
+ * 找 sum最大，每个长度都是k 的 三个 subarray。 三个subarray不能有overlap。 举个例子 1,2,1,2,6,7,5,1。k = 2
  * 结果就是
  *
  * [2, 1], [2,6], [7,5]  -> sum = 23

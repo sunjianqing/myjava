@@ -2,6 +2,9 @@ package com.jianqing.interview.leetcode16;
 
 /**
  * Created by jianqing_sun on 8/3/17.
+ *
+ * dp(i, j) 代表从 从 (1,1) 原点 到 (i, j) 的sum
+ * 所以， 求range 的sum ， 最大 减去两个小的， 再把重叠的加回来
  */
 public class RangeSumQuery2D_304 {
     private int[][] dp;
