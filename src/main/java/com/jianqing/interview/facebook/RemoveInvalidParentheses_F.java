@@ -36,22 +36,25 @@ public class RemoveInvalidParentheses_F {
 
         int len = sb.length();
 
-        if (open == 0) {
-            res.add(sb.toString());
-            return;
-        } else {
-            char c = s.charAt(i);
-            if (c == '(') {
-                dfs(s, i + 1, res, sb.append(c), rmL, rmR, open + 1); // keep
-                dfs(s, i + 1, res, sb, rmL - 1, rmR, open); // remove
-            } else if (c == ')') {
-                dfs(s, i + 1, res, sb.append(c), rmL, rmR, open - 1); // keep
-                dfs(s, i + 1, res, sb, rmL, rmR - 1, open); // remove
-
-            } else {
-                dfs(s, i + 1, res, sb.append(c), rmL, rmR, open);
+        if (i == s.length()) {
+            if (rmL == 0 && rmR == 0 && open == 0) {
+                res.add(sb.toString());
             }
+            return;
         }
+
+        char c = s.charAt(i);
+        if (c == '(') {
+            dfs(s, i + 1, res, sb.append(c), rmL, rmR, open + 1); // keep
+            dfs(s, i + 1, res, sb, rmL - 1, rmR, open); // remove
+        } else if (c == ')') {
+            dfs(s, i + 1, res, sb.append(c), rmL, rmR, open - 1); // keep
+            dfs(s, i + 1, res, sb, rmL, rmR - 1, open); // remove
+
+        } else {
+            dfs(s, i + 1, res, sb.append(c), rmL, rmR, open);
+        }
+
 
         sb.setLength(len); //reset back to decision point -- remove last char of sb
 

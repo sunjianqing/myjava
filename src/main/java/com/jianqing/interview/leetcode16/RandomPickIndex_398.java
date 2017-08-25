@@ -6,6 +6,14 @@ import java.util.Random;
  * Created by jianqingsun on 1/3/17.
  */
 public class RandomPickIndex_398 {
+    public static void main(String[] args) {
+        Random r = new Random();
+        System.out.println(r.nextInt(1));
+        System.out.println(r.nextInt(1));
+        System.out.println(r.nextInt(1));
+        System.out.println(r.nextInt(1));
+
+    }
 
     public int[] nums;
     Random rand = new Random();

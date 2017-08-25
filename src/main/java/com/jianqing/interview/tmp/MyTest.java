@@ -26,6 +26,13 @@ public class MyTest {
 
         Queue<Integer> que = new LinkedList<>();
 
+
+        StringBuilder sb = new StringBuilder();
+        sb.insert(0, "1");
+        sb.insert(0,"2");
+
+        System.out.println(sb.toString());
+
     }
 
 }

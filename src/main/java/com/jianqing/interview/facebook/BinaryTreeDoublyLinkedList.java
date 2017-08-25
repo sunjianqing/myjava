@@ -29,7 +29,6 @@ public class BinaryTreeDoublyLinkedList {
                 node = node.left;
             }
 
-
             //add node
             node = stack.pop();
             DoublyListNode curr = new DoublyListNode(node.val);

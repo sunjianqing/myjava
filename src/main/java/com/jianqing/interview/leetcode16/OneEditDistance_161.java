@@ -4,6 +4,13 @@ package com.jianqing.interview.leetcode16;
  * Created by jianqing_sun on 8/2/17.
  */
 public class OneEditDistance_161 {
+
+    public static void main(String[] args) {
+        OneEditDistance_161 oed = new OneEditDistance_161();
+        boolean oneEditDistance = oed.isOneEditDistance("abce", "acbce");
+        System.out.println(oneEditDistance);
+
+    }
     public boolean isOneEditDistance(String s, String t){
 
         int diff = Math.abs(s.length() - t.length());
@@ -22,7 +29,7 @@ public class OneEditDistance_161 {
 
             while(i < s.length()){
                 if(s.charAt(i) != t.charAt(i)){
-                    return s.charAt(i) == t.charAt(i+1);
+                    return s.substring(i,s.length()).equals(t.substring(i+1, t.length()));
                 }
                 i++;
             }
