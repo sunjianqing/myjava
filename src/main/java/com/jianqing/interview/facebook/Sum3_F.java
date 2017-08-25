@@ -38,7 +38,6 @@ public class Sum3_F {
                         hi--;
                     }
 
-
                 }
             }
         }
