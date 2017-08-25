@@ -32,7 +32,7 @@ public class SymmetricTree_101 {
         return true;
     }
 
-
+    // 解法3
     public boolean isSymmetric3(TreeNode root) {
         return isMirror(root, root);
     }

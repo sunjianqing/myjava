@@ -12,6 +12,8 @@ public class TaskCoolDown {
         TaskCoolDown tcd = new TaskCoolDown();
         String solution = tcd.solution(new Character[]{'A', 'B', 'C', 'A', 'A', 'B'}, 3);
         System.out.println(solution);
+        // ABC-A---AB
+
 
     }
 
