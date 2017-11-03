@@ -1,9 +1,6 @@
 package com.jianqing.interview.facebook;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * Created by jianqing_sun on 6/13/17.
@@ -41,6 +38,8 @@ public class KCloestPoints {
     }
 
     public List<Point> kClosestPoints(List<Point> points, int k) {
+        Arrays.asList(1,2);
+
         List<Point> res = new ArrayList<Point>();
 
         if (points == null || points.size() == 0) {
@@ -50,9 +49,9 @@ public class KCloestPoints {
         PriorityQueue<Point> queue = new PriorityQueue(k, new Comparator<Point>() {
             @Override
             public int compare(Point o1, Point o2) {
-                int res = (o1.x * o1.x + o1.y * o1.y - (o2.x * o2.x + o2.y * o2.y));
+                double res = Math.sqrt(o1.x * o1.x + o1.y * o1.y) - Math.sqrt(o2.x * o2.x + o2.y * o2.y);
 
-                if(res == 0)
+                if(res == 0.0)
                     return 0;
 
                 if(res > 0)
