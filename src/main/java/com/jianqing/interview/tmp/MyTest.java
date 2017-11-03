@@ -33,6 +33,10 @@ public class MyTest {
 
         System.out.println(sb.toString());
 
+        int divisor = 3;
+        int dividend = 7;
+        System.out.println((float)( divisor / dividend));
+
     }
 
 }
