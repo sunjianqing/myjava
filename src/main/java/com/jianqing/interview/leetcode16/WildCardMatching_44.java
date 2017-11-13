@@ -25,7 +25,7 @@ package com.jianqing.interview.leetcode16;
  isMatch("aab", "c*a*b") → false
 
  */
-public class WilidcardMatching_44 {
+public class WildCardMatching_44 {
 
     boolean isMatch(String s, String p) {
         int m = s.length(), n = p.length();
