@@ -17,6 +17,11 @@ package com.jianqing.interview.leetcode16;
  * https://segmentfault.com/a/1190000003707313
  */
 public class MinimumWindowSubstring_76 {
+    public String minWindow(String S, String T) {
+        StringBuilder sb = new StringBuilder();
 
+
+        return sb.toString();
+    }
 
 }
