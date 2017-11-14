@@ -13,6 +13,10 @@ public class RandomClass {
         System.out.println(i);
 
         int j = r.nextInt(10);
+        float k = r.nextFloat();
+
         System.out.println(j);
+        System.out.println(k);
+
     }
 }
