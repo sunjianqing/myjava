@@ -14,11 +14,11 @@ import util.GenQueue;
  * For example:
  * Given the below binary tree and sum = 22,
  * <p>
- * 5
- * / \
- * 4   8
+ *     5
+ *   /  \
+ *  4   8
  * /   / \
- * 11  13  4
+ *11  13  4
  * /  \      \
  * 7  2      5
  * <p>
