@@ -13,7 +13,6 @@ public abstract class AbstractDemo {
         this.age = age;
     }
 
-
     public AbstractDemo() {
     }
 
@@ -27,7 +26,6 @@ public abstract class AbstractDemo {
     public int getAge(){
         return age;
     }
-
 
 
 }

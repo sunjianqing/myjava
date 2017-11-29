@@ -8,6 +8,8 @@ import java.util.List;
 
 /**
  * Created by jianqing_sun on 6/29/17.
+ *
+ * 两两合并， 或者用priority queue， 如果有个k个list， 每个长度是n 的话， 复杂度是 O(nklog(k))
  */
 public class MergeKSortedLists_23 {
     // Iterative 解法
