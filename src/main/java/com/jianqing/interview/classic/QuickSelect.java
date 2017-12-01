@@ -3,7 +3,7 @@ package com.jianqing.interview.classic;
 /**
  * Created by jianqing_sun on 7/20/17.
  */
-public class QuickSelect {
+public class  QuickSelect {
 
     public static void main(String[] args) {
         QuickSelect qs = new QuickSelect();
