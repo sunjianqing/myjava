@@ -5,13 +5,14 @@ import java.util.Date;
 /**
  * Created by jianqing_sun on 12/6/17.
  */
-public class Note {
+public class Note extends Model {
     private String text;
     private String title;
     private long id;
     private Date creationTime;
     private Date lastupdateTime;
     private String comments;
+
 
     public String getText() {
         return text;
