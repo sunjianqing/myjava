@@ -32,7 +32,7 @@ public class Controller {
         note.setText(info[3]);
 
         genericDAO.save(note);
-        return buildResponse(request.type, "created note" + note.getNoteId());
+        return buildResponse(request.type, "Create note " + note.getNoteId());
     }
 
     public String updateNote(Request request) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException {
@@ -48,7 +48,7 @@ public class Controller {
 
         genericDAO.save(note);
 
-        return buildResponse(request.type, "update note" + note.getNoteId());
+        return buildResponse(request.type, "Update note " + note.getNoteId());
     }
 
     public String getNotesByUser(Request request) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException {
@@ -65,7 +65,7 @@ public class Controller {
             sb.append(note.getNoteId() + ":" + note.getTitle()+ ":"+ note.getText());
             sb.append("\n");
         }
-        return buildResponse(request.type, "get notes by user " + userId + sb.toString());
+        return buildResponse(request.type, "get notes from user " + userId + "\n"+ sb.toString());
     }
 
 

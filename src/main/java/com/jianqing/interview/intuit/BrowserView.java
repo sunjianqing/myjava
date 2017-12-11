@@ -7,8 +7,9 @@ public class BrowserView implements View {
 
     @Override
     public String display(String response) {
-        StringBuilder sb = new StringBuilder("Web Response");
+        StringBuilder sb = new StringBuilder("Web Response\n");
         sb.append(response);
+        sb.append("\n----------------------");
         return sb.toString();
     }
 }

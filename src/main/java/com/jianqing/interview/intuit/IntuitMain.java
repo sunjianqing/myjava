@@ -6,22 +6,44 @@ package com.jianqing.interview.intuit;
 public class IntuitMain {
     public static void main(String[] args) {
 
-        System.out.println("Start");
+        System.out.println("App Starts");
 
         Controller controller = Controller.getInstance();
 
+        // create user1 note 1 from web
+        Request request = new Request(ClientType.WEB, "u1,n1,t1,n1 context");
+        String resp = controller.createNote(request);
+        System.out.println(resp);
 
-        // create note 1 from web
+        // create user1 note 2 from mobile
+        request = new Request(ClientType.Android, "u1,n2,t2,n2 context");
+        resp = controller.createNote(request);
+        System.out.println(resp);
 
-        // create note 2 from mobile
+        // create user2 note 3 from web
+        request = new Request(ClientType.WEB, "u2,n3,t3,n3 context");
+        resp = controller.createNote(request);
+        System.out.println(resp);
 
         // update note 1
+        try {
+            request = new Request(ClientType.WEB, "n1,n1 new context");
+            resp = controller.updateNote(request);
+            System.out.println(resp);
+        } catch (Exception e) {
+            System.err.println("Note update failed." + e.getMessage());
+        }
 
-        // delete note 2
+        // get all user1 notes
+        try {
+            request = new Request(ClientType.WEB,"u1" );
+            resp = controller.getNotesByUser(request);
+            System.out.println(resp);
+        } catch (Exception e) {
+            System.err.println("Note fetch failed" + e.getMessage());
+        }
 
-
-
-        System.out.println("End");
+        System.out.println("App Ends");
 
     }
 }
