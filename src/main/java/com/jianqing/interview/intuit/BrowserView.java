@@ -6,7 +6,9 @@ package com.jianqing.interview.intuit;
 public class BrowserView implements View {
 
     @Override
-    public String display() {
-        return null;
+    public String display(String response) {
+        StringBuilder sb = new StringBuilder("Web Response");
+        sb.append(response);
+        return sb.toString();
     }
 }
