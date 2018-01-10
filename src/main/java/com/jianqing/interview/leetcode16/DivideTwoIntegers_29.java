@@ -4,7 +4,7 @@ package com.jianqing.interview.leetcode16;
  * Created by jianqing_sun on 6/26/17.
  * 比如
  * 47/3 可以拆成 2^3*3 + 2^2*3 + 2^1*3+ 2^0*3 = 24+12+6+3
- * 结果就是8       +4      +2     +1  = 15
+ * 结果就是       8    +  4    +  2   +  1  = 15
  */
 public class DivideTwoIntegers_29 {
 
