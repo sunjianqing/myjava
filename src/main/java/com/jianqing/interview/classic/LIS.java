@@ -9,6 +9,7 @@ package com.jianqing.interview.classic;
  * longest increasing subsequence
  * 最长递增子序列
  *
+ * http://blog.csdn.net/sgbfblog/article/details/7798737
  */
 public class LIS {
 
