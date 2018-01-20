@@ -2,6 +2,8 @@ package com.jianqing.interview.leetcode16;
 
 /**
  * Created by jianqing_sun on 1/24/17.
+ *
+ * 找到一个符合 比两边大 就行， 不是找所有的最大值（peak）
  */
 public class FindPeakElement_162 implements Solution {
 
