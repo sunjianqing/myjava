@@ -9,6 +9,18 @@ public class MissingNumber_268 implements Solution {
 
     }
 
+    // 利用a^b^b =a 的性质， n 个数 跟n 个index 做xor， 最后的结果就是missing number
+    public int missingNumber2(int[] nums) {
+
+        int xor = 0, i = 0;
+        for (i = 0; i < nums.length; i++) {
+            xor = xor ^ i ^ nums[i];
+        }
+
+        return xor ^ i;
+    }
+
+
     public int missingNumber(int[] nums) {
         int max = nums[0];
 

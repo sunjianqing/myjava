@@ -11,7 +11,7 @@ package com.jianqing.interview.leetcode16;
  Given word1 = “coding”, word2 = “practice”, return 3.
  Given word1 = "makes", word2 = "coding", return 1.
 
- 双指针，每次遇到word ， 就算一次
+ 双指针，每次遇到任一word ， 就算一次
  */
 public class ShortestWordDistance_243 {
     public int shortestDistance(String[] words, String word1, String word2) {
