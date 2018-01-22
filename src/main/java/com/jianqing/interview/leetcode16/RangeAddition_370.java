@@ -23,7 +23,7 @@ public class RangeAddition_370 {
 
         int sum = 0;
         int[] re = new int[length];
-        for(int i = 0; i < res.length; i++) {
+        for(int i = 0; i < res.length - 1; i++) {
             sum += res[i];
             re[i] = sum;
         }
