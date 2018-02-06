@@ -107,4 +107,36 @@ public class TreeTraversal {
 
         return res;
     }
+
+    // Morris 利用了 叶子节点的 右指针是空
+    public List MorrisTraversal(TreeNode root){
+        List<Integer> res = new ArrayList<>();
+        TreeNode temp = null;
+        while(root != null) {
+            if(root.left != null){
+
+                temp = root.left;
+                // 一路找到最右的节点， 或者最右的节点的右指针已经指向root了
+                while(temp.right !=null && temp.right != root){
+                    temp = temp.right;
+                }
+
+                if(temp.right != null){
+                    // 改回来
+                    temp.right = null;
+                    System.out.println(root.val);
+                    res.add(root.val);
+                    root = root.right;
+                }
+                else{
+                    // 把右指针接到root 上
+                    temp.right = root;
+                    root = root.left; // 可以traverse 左子树了
+                }
+            }
+        }
+
+        return res;
+
+    }
 }
