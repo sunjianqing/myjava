@@ -4,7 +4,8 @@ package com.jianqing.interview.leetcode16;
  * Created by jianqing_sun on 5/23/17.
  *
  * https://segmentfault.com/a/1190000007297715
- *
+ *  换个思路， 本来没法把dp[i][j] 切开， 因为切开的点k不是独立的， 那就得想，
+ *  如果k 是最后一个点， 那就可以在k处分开了， 分开算从i到k， 从k到j， 再加上i*k*j的值
  */
 public class BurstBallons_312 {
     public int maxCoins(int[] nums) {
