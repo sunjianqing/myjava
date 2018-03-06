@@ -12,6 +12,8 @@ import java.util.List;
  * <p>
  * 每个节点根据左右子树的深度确定自己的深度值， 就是左右子树深度较大的那个+1，因为剥开的时候， 深度较浅的那个子树先变成null， 深度较深的那颗树不是
  * null。 这样根据节点的index， 就能找到相应的结果集
+ *
+ * https://www.youtube.com/watch?v=qJOHOKMnHdM
  */
 public class FindLeavesofBinaryTree_366 {
     public List<List<Integer>> findLeaves(TreeNode root) {
@@ -40,6 +42,8 @@ public class FindLeavesofBinaryTree_366 {
 
         res.get(cur).add(root.val);
 
+        root.left = null;
+        root.right = null;
         return cur;
     }
 }

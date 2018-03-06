@@ -8,4 +8,10 @@ package com.jianqing.interview.leetcode16;
  * build graph , then topological sort
  */
 public class AlienDictionary_269 {
+    public String alienOrder(String[] words){
+        StringBuilder sb = new StringBuilder();
+
+
+        return sb.toString();
+    }
 }
