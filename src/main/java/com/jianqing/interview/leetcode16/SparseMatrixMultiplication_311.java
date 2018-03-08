@@ -3,7 +3,13 @@ package com.jianqing.interview.leetcode16;
 /**
  * Created by jianqingsun on 7/20/17.
  *
+ Given two sparse matrices A and B, return the result of AB.
+
+ You may assume that A's column number is equal to B's row number.
+
  * 稀疏矩阵 要等不是0 的时候再乘
+ *
+ * 三重循环， 不为0的时候，计算最终结果res[i][k] 的"一部分"
  */
 public class SparseMatrixMultiplication_311 {
 

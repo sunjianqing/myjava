@@ -12,15 +12,6 @@ public class InorderSuccessorinBST_285 {
             return null;
         }
 
-        // 这段没用
-//        if(p.right != null) {
-//            // find left most
-//            TreeNode node = p.right;
-//            while(node.left != null) {
-//                node = node.left;
-//            }
-//            return node;
-//        }
 
         TreeNode successor = null;
         while(root != null) {

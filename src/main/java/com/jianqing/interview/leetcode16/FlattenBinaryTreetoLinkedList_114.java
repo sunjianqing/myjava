@@ -29,6 +29,31 @@ public class FlattenBinaryTreetoLinkedList_114 {
 
     }
 
+    // again
+    public void flatten2(TreeNode root){
+        if(root == null)
+            return;
+
+        TreeNode node = root;
+        while ( node != null ) {
+
+            if(node.left != null){
+                // find the right most
+                TreeNode rightmost = node.left;
+                while(rightmost.right != null){
+                    rightmost = rightmost.right;
+                }
+
+                rightmost.right = node.right;
+                node.right = node.left;
+                node.left = null;
+            }
+
+            node = node.right;
+
+        }
+    }
+
     public void flatten(TreeNode root) {
         if (root == null)
             return;
@@ -56,4 +81,5 @@ public class FlattenBinaryTreetoLinkedList_114 {
 
         System.out.println("Done");
     }
+
 }

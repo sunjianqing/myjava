@@ -14,19 +14,20 @@ public class ValidateBinarySearchTree_98 {
 
     //Recursive
     public boolean isValidBSTRecursive(TreeNode root) {
-        return recursiveHelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+
+        return helper(root, Long.MIN_VALUE, Long.MAX_VALUE); // 对用long.min_value, max_value
     }
 
-    private boolean recursiveHelper(TreeNode node, int min, int max){
-        if(node == null){
+    public boolean helper(TreeNode node, long min, long max){
+        if(node == null)
             return true;
-        }
-
-        if(node.val >= max || node.val <= min ){
+        if(node.val <= min || node.val >= max){
             return false;
         }
 
-        return recursiveHelper(node.left, min, node.val) && recursiveHelper(node.right, node.val, max);
+        return helper(node.left, min, node.val) && helper(node.right, node.val, max);
+
+
     }
 
         // Iterative
