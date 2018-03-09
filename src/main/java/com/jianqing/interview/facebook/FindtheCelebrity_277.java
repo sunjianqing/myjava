@@ -22,6 +22,7 @@ public class FindtheCelebrity_277 {
                 candidate = i;
         }
         for (int i = 0; i < n; i++) {
+            // 如果不是所有人都认识candidate 或者 candidate 认识了其他人， 就返回-1
             if (i != candidate && (knows(candidate, i) || !knows(i, candidate))) return -1;
         }
         return candidate;
