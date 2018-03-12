@@ -44,4 +44,13 @@ public class Lyft {
 
         return sb.toString();
     }
+
+    /*
+        俩稀疏向量相加
+        要么build 俩map， 在相应的的key （其实是那个维度上相加）
+        要么就是build 一个map， 去另一个vector 里， 做binary search 每一个map的key， 再相加
+     */
+    public void  AddTwoSparseVector(int[] n1, int[] n2){
+        return;
+    }
 }
