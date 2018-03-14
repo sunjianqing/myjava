@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * Created by jianqing_sun on 3/12/18.
- * 如果 ShortestWordDistance I 要 中， 两个单词一样咋办 ， 用II 中同样的方法
+ * 如果 ShortestWordDistance I 中， 两个单词一样咋办 ， 用II 中同样的方法
  */
 public class ShortestWordDistanceII_245 {
     public int shortestDistance(String[] words, String word1, String word2) {

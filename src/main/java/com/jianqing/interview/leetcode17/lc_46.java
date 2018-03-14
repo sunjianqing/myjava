@@ -7,6 +7,13 @@ import java.util.List;
  * Created by jianqing_sun on 11/10/17.
  */
 public class lc_46 {
+
+    public static void main(String[] args) {
+        lc_46 lc = new lc_46();
+        List<List<Integer>> permute = lc.permute(new int[]{1, 2, 3});
+        System.out.println(permute);
+
+    }
     public List<List<Integer>> permute(int[] nums) {
 
         List<List<Integer>> res = new ArrayList<>();
