@@ -11,6 +11,10 @@ import java.util.Stack;
  */
 public class TreeTraversal {
 
+    public static void main(String[] args) {
+
+    }
+
     public void PostOrder(TreeNode root) {
         Stack<TreeNode> nodes = new Stack<>();
         nodes.push(root);
@@ -133,6 +137,10 @@ public class TreeTraversal {
                     temp.right = root;
                     root = root.left; // 可以traverse 左子树了
                 }
+            }
+            else{
+                res.add(root.val);
+                root = root.right;
             }
         }
 

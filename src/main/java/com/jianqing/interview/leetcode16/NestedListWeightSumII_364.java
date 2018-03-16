@@ -19,7 +19,7 @@ public class NestedListWeightSumII_364 {
         NestedListWeightSumII_364 nws = new NestedListWeightSumII_364();
 
         List<NestedInteger> nestedList = new ArrayList<>();
-        nestedList.add( new NestedInteger(){
+        nestedList.add(new NestedInteger() {
 
             @Override
             public boolean isInteger() {
@@ -37,7 +37,7 @@ public class NestedListWeightSumII_364 {
             }
         });
 
-        nestedList.add( new NestedInteger(){
+        nestedList.add(new NestedInteger() {
 
             @Override
             public boolean isInteger() {
@@ -51,7 +51,7 @@ public class NestedListWeightSumII_364 {
 
             @Override
             public List<NestedInteger> getList() {
-                return Arrays.asList(new NestedInteger(){
+                return Arrays.asList(new NestedInteger() {
 
                     @Override
                     public boolean isInteger() {
@@ -67,7 +67,7 @@ public class NestedListWeightSumII_364 {
                     public List<NestedInteger> getList() {
                         return null;
                     }
-                }, new NestedInteger(){
+                }, new NestedInteger() {
 
                     @Override
                     public boolean isInteger() {
@@ -87,7 +87,7 @@ public class NestedListWeightSumII_364 {
             }
         });
 
-        nestedList.add( new NestedInteger(){
+        nestedList.add(new NestedInteger() {
 
             @Override
             public boolean isInteger() {
@@ -101,7 +101,7 @@ public class NestedListWeightSumII_364 {
 
             @Override
             public List<NestedInteger> getList() {
-                return Arrays.asList(new NestedInteger(){
+                return Arrays.asList(new NestedInteger() {
 
                     @Override
                     public boolean isInteger() {
@@ -117,7 +117,7 @@ public class NestedListWeightSumII_364 {
                     public List<NestedInteger> getList() {
                         return null;
                     }
-                }, new NestedInteger(){
+                }, new NestedInteger() {
 
                     @Override
                     public boolean isInteger() {
@@ -152,13 +152,12 @@ public class NestedListWeightSumII_364 {
         return res;
     }
 
-    private int sum(List<NestedInteger> list, int curDepth){
+    private int sum(List<NestedInteger> list, int curDepth) {
         int sum = 0;
-        for(NestedInteger n : list){
-            if(n.isInteger()){
-                sum += n.getInteger()*curDepth;
-            }
-            else{
+        for (NestedInteger n : list) {
+            if (n.isInteger()) {
+                sum += n.getInteger() * curDepth;
+            } else {
                 sum += sum(n.getList(), curDepth - 1);
             }
         }
@@ -168,10 +167,10 @@ public class NestedListWeightSumII_364 {
 
     private int maxDepth(List<NestedInteger> list, int depth) {
         int max = depth;
-        if(!list.isEmpty()){
-            for(NestedInteger n: list){
-                if(!n.isInteger()){
-                    max = Math.max(max, maxDepth(n.getList(), depth+1));
+        if (!list.isEmpty()) {
+            for (NestedInteger n : list) {
+                if (!n.isInteger()) {
+                    max = Math.max(max, maxDepth(n.getList(), depth + 1));
                 }
             }
         }

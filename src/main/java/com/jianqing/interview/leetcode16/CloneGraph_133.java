@@ -12,7 +12,7 @@ class UndirectedGraphNode {
 
     UndirectedGraphNode(int x) {
         label = x;
-        neighbors = new ArrayList<UndirectedGraphNode>();
+        neighbors = new ArrayList<>();
     }
 };
 

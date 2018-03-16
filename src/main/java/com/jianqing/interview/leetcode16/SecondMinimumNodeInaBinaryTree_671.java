@@ -4,6 +4,8 @@ import com.jianqing.interview.base.TreeNode;
 
 /**
  * Created by jianqing_sun on 3/5/18.
+ *
+ * DFS
  */
 public class SecondMinimumNodeInaBinaryTree_671 {
     public int findSecondMinimumValue(TreeNode root) {
