@@ -5,6 +5,27 @@ import java.util.List;
 
 /**
  * Created by jianqing_sun on 11/13/17.
+ *
+ * Given an array of words and a length L, format the text such that each line has exactly L characters and is fully (left and right) justified.
+
+ You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces ' ' when necessary so that each line has exactly L characters.
+
+ Extra spaces between words should be distributed as evenly as possible. If the number of spaces on a line do not divide evenly between words, the empty slots on the left will be assigned more spaces than the slots on the right.
+
+ For the last line of text, it should be left justified and no extra space is inserted between words.
+
+ For example,
+ words: ["This", "is", "an", "example", "of", "text", "justification."]
+ L: 16.
+
+ Return the formatted lines as:
+ [
+ "This    is    an",
+ "example  of text",
+ "justification.  "
+ ]
+ Note: Each word is guaranteed not to exceed L in length.
+
  * <p>
  * 1. 首先要能判断多少个word组成一行：
  * 这里统计读入的所有words的总长curLen，并需要计算空格的长度。假如已经读入words[0:i]。当curLen + i <=L 且加curLen + 1 + word[i+1].size() > L时，一行结束。
