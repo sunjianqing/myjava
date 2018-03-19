@@ -9,7 +9,7 @@ import java.util.*;
  * Created by jianqing_sun on 3/14/18.
  */
 public class Tesla {
-    private static final String dataPath = "/Users/jianqingsun/Downloads/coordinates_test.csv";
+    private static final String dataPath = "/Users/jianqingsun/Downloads/coordinates.csv";
     private static final String stationPath = "/Users/jianqingsun/Downloads/centroids.csv";
     private static final int DATACNT = 200000;
     private static final int SATATIONCNT = 1000;
@@ -22,6 +22,24 @@ public class Tesla {
 //            tesla.Q2();
 //            tesla.Q3();
             tesla.Q4();
+//            Map<Integer, Set<Integer>> stationMap = new HashMap<>(); // stationId -> cars closed to me
+//            Set<Integer> set1 = new HashSet<>();
+//            Set<Integer> set2 = new HashSet<>();
+//
+//            set1.add(1);
+//            set1.add(2);
+//            set1.add(3);
+//            set1.add(4);
+//
+//            set2.add(5);
+//            set2.add(6);
+//            set2.add(7);
+//
+//            stationMap.put(1, set1);
+//            stationMap.put(2, set2);
+//
+//            tesla.swap(stationMap,1,2,2,6);
+            System.out.println("hello ");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -126,44 +144,86 @@ public class Tesla {
         int kmeansRound = 0;
         while(kmeansRound < 10){
             kmeansRound ++;
-
-            for (Integer stationId : adjustedOpt.keySet()) {
-
-                for (Integer carId : adjustedOpt.get(stationId)) {
+            Set<Integer> stationSet = new HashSet<>(adjustedOpt.keySet());
+            for (Integer stationId : stationSet) {
+                List<Integer> cars = new ArrayList(adjustedOpt.get(stationId));
+                for (Integer carId : cars) {
                     List<Integer> mySortedStations = carStationsMap.get(carId);
                     int candidateStation1 = -1;
                     int candidateStation2 = -1;
 
-                    for(Integer cid : mySortedStations){
+                    int index = 0;
+                    for(;index < mySortedStations.size(); index++){
+                        Integer cid = mySortedStations.get(index);
+                        if(!adjustedOpt.containsKey(cid)){
+                            continue;
+                        }
 
-                        if(candidateStation1 != -1 && candidateStation2 != -1)
-                            break;
+                        if(cid != stationId ){
+                            while(index < mySortedStations.size() - kmeansRound){
+                                if(candidateStation1 == -1 && adjustedOpt.containsKey(mySortedStations.get(index)) && mySortedStations.get(index).compareTo(stationId) != 0 ){
+                                    candidateStation1 = mySortedStations.get(index);
+                                }
 
-                        if(adjustedOpt.containsKey(cid) && cid != stationId ){
-                            if(candidateStation1 == -1){
-                                candidateStation1 = cid ;
-                                continue;
+                                if(candidateStation1 != -1 && candidateStation2 == -1 && adjustedOpt.containsKey(mySortedStations.get(index+kmeansRound))
+                                        && mySortedStations.get(index + kmeansRound).compareTo(stationId) != 0
+                                        && mySortedStations.get(index + kmeansRound).compareTo(candidateStation1) != 0  ){
+
+                                    candidateStation2 = mySortedStations.get(index + kmeansRound);
+                                }
+
+                                if(candidateStation1 > -1 && candidateStation2 > -1 && candidateStation1 != candidateStation2)
+                                    break;
+
+                                index++;
                             }
+                        }
+                    }
+                    if(stationId.compareTo(candidateStation1) == 0 || stationId.compareTo(candidateStation2) == 0)
+                        throw  new RuntimeException("carId " + carId + "has duplicate sorted station " + stationId + " " + candidateStation1 + " " + candidateStation2 );
 
-                            if(candidateStation2 == -1){
-                                candidateStation2 = cid ;
+
+                    boolean found = false;
+                    int removeCarIdFromOpt1 = -1;
+                    int removeCarIdFromOpt2 = -1;
+                    if(candidateStation1 != -1 && candidateStation2 != -1 && candidateStation1 != candidateStation2){
+                        for(Integer carId1 : adjustedOpt.get(candidateStation1)){
+                            if(!found){
+                                for(Integer carId2: adjustedOpt.get(candidateStation2)){
+                                    if(shouldTransfer(data, stations, stationId, candidateStation1, candidateStation2, carId, carId1, carId2, stationMap)){
+                                        swapCnt++;
+                                        found = true;
+                                        System.out.println("Reassign car id " + carId + " for station " + stationId);
+                                        removeCarIdFromOpt1 = carId1;
+                                        removeCarIdFromOpt2 = carId2;
+
+                                        break;
+                                    }
+                                }
+                            }
+                            else{
+                                break;
                             }
                         }
                     }
 
-                    for(Integer carId1 : adjustedOpt.get(candidateStation1)){
-                        for(Integer carId2: adjustedOpt.get(candidateStation2)){
-                            if(shouldTransfer(data, stations, stationId, candidateStation1, candidateStation2, carId, carId1, carId2, stationMap)){
-                                swapCnt++;
-                            }
 
-                        }
+                    if(found) {
+                        // 删掉最上层的那个循环
+                        adjustedOpt.get(stationId).remove(new Integer(carId));
+                        adjustedOpt.get(candidateStation1).remove(new Integer(removeCarIdFromOpt1));
+                        adjustedOpt.get(candidateStation2).remove(new Integer(removeCarIdFromOpt2));
                     }
 
                 }
             }
+            System.out.println("swap cnt is " + swapCnt);
+            swapCnt = 0;
 
         }
+
+        // compute Radius
+
 
         System.out.println("Potencial mv cnt " + potencialMoveCnt);
 //        for(Map.Entry<Integer, PriorityQueue<IdxDist>> entry : map.entrySet()){
@@ -173,22 +233,20 @@ public class Tesla {
     }
 
     private void swap(Map<Integer, Set<Integer>> stationMap, int oldStationId, int newStationId, int oldCarId, int newCarId){
-        Iterator<Integer> oldIter = stationMap.get(oldStationId).iterator();
-        Iterator<Integer> newIter = stationMap.get(newStationId).iterator();
 
-        while(oldIter.hasNext()){
-            if(oldIter.next() == oldCarId)
-                oldIter.remove();
+
+        if(!stationMap.get(oldStationId).remove(new Integer(oldCarId))){
+            throw new RuntimeException("Exception Remove from station " + oldStationId + "with car " + oldCarId);
         }
 
-        //stationMap.get(oldStationId).remove(oldCarId);
-        stationMap.get(oldStationId).add(newCarId);
+        stationMap.get(oldStationId).add(new Integer(newCarId));
+
+        System.out.println(String.format("remove %s from station %s, add %s to station %s", oldCarId, oldStationId, newCarId, oldStationId));
 //        stationMap.get(newStationId).add(oldCarId);
-        while(newIter.hasNext()){
-            if(newIter.next() == newCarId)
-                newIter.remove();
-        }
-        //stationMap.get(newStationId).remove(newCarId);
+
+//        if(!stationMap.get(newStationId).remove(new Integer(newCarId))){
+//            throw new RuntimeException("Exception Remove from station " + newStationId + "with car " + newCarId);
+//        }
 
     }
 
@@ -296,69 +354,6 @@ public class Tesla {
             }
 
             deltasList.add(new Delta(i, nearestStationId, furthestStationId, nearestDist - furthestDist));
-
-//            IdxDist nearestStationInfo = queue.peek();
-//            int stationIndex = nearestStationInfo.idx;
-//            double dist = nearestStationInfo.dist;
-//            PriorityQueue<IdxDist> maxHeap = map.getOrDefault(stationIndex, new PriorityQueue<IdxDist>(new Comparator<IdxDist>() {
-//                @Override
-//                public int compare(IdxDist o1, IdxDist o2) {
-//                    if(o2.dist == o1.dist){
-//                        return 0;
-//                    }
-//                    else{
-//                        return o2.dist > o1.dist ? 1 : -1;
-//                    }
-//                }
-//            }));
-
-//            maxHeap.add(new IdxDist(i, dist));
-//            map.put(stationIndex, maxHeap);
-
-//            List<Integer> stationList = new ArrayList<>();
-//            IdxDist myNearestStationInfo = queue.poll();
-//            while(!queue.isEmpty()){
-//             stationList.add(queue.poll().idx);
-//            }
-//            carmap.put(i, stationList);
-//
-//            PriorityQueue<IdxDist> maxHeap = map.getOrDefault(myNearestStationInfo.idx, new PriorityQueue<IdxDist>(new Comparator<IdxDist>() {
-//                @Override
-//                public int compare(IdxDist o1, IdxDist o2) {
-//                    if(o2.dist == o1.dist){
-//                        return 0;
-//                    }
-//                    else{
-//                        return o2.dist > o1.dist ? 1 : -1;
-//                    }
-//                }
-//            }));
-//
-//            IdxDist cidxDist = new IdxDist(i, myNearestStationInfo.dist);
-//
-//            maxHeap.add(cidxDist);
-//            map.put(myNearestStationInfo.idx, maxHeap);
-//
-//            if(maxHeap.size() > SATATIONCNT){
-//                IdxDist carWithMaxDistAroundStation = maxHeap.poll();
-//                int carIdx = carWithMaxDistAroundStation.idx;
-//                Iterator<Integer> myOrderedStations = carmap.get(carIdx).iterator();
-//                while(myOrderedStations.hasNext()){ // get my sorted stations
-//                    Integer sidx = myOrderedStations.next(); // my next nearest station
-//
-//                    if(map.get(sidx).size() < SATATIONCNT){
-//                        double dist = computeDist(data[carIdx][0], data[carIdx][1], stations[sidx][0], stations[sidx][1]);
-//                        IdxDist newCIdxDist = new IdxDist(carIdx, dist);
-//                        map.get(sidx).add(newCIdxDist);
-//                        break;
-//                    }
-//                    else{
-//                        myOrderedStations.remove();
-//                    }
-//
-//                }
-//
-//            }
 
         }
 
