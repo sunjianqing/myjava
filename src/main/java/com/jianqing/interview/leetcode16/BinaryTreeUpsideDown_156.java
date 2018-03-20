@@ -4,6 +4,20 @@ import com.jianqing.interview.base.TreeNode;
 
 /**
  * Created by jianqing_sun on 11/29/17.
+ *
+ *   1
+    / \
+   2  3
+  / \
+ 4  5
+
+ =>
+     4
+    / \
+   5  2
+     / \
+    3  1
+
  */
 public class BinaryTreeUpsideDown_156 {
 
@@ -24,6 +38,25 @@ public class BinaryTreeUpsideDown_156 {
         TreeNode updown = btud.updown(root);
         System.out.println(updown.val);
 
+    }
+
+    public TreeNode upsideDownBinaryTree(TreeNode root) {
+        if ( root == null ){
+            return null;
+        }
+
+        TreeNode parent = root;
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+
+        if(left != null){
+            TreeNode ret = upsideDownBinaryTree(left);
+            left.right = parent;
+            left.left = right;
+            return ret;
+        }
+
+        return root;
     }
 
     public TreeNode updown(TreeNode root){
