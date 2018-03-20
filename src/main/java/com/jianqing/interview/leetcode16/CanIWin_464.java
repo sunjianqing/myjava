@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * Created by jianqing_sun on 6/20/17.
+ *
+ * 从1 到 n 轮流取数， 谁先取到 desiredTotal 100 谁赢
  */
 public class CanIWin_464 {
     public static void main(String[] args) {
