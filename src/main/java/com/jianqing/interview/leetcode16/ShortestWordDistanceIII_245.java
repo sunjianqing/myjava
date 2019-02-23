@@ -13,6 +13,8 @@ package com.jianqing.interview.leetcode16;
  * <p>
  * Given word1 = “makes”, word2 = “coding”, return 1.
  * Given word1 = "makes", word2 = "makes", return 3.
+ *
+ * 俩单词有可能相等
  */
 public class ShortestWordDistanceIII_245 {
     public int shortestWordDistance(String[] words, String word1, String word2) {

@@ -63,7 +63,7 @@ public class WordLadder_127 {
 
                         }
                     }
-                    oldChars[j] = old;
+                    oldChars[j] = old; // 把当前的字符再放回去， 以保证每次只改一个字符
                 }
             }
         }

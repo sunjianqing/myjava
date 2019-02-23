@@ -1,6 +1,7 @@
 package com.jianqing.interview.language;
 
 import java.io.*;
+import java.nio.file.Files;
 
 /**
  * Created by jianqing_sun on 1/29/18.
@@ -18,8 +19,9 @@ public class IODemo {
 */
     public static void main(String[] args) {
         IODemo io = new IODemo();
-        //io.ByteDemo();
+        io.ByteDemo();
         io.CharDemo();
+        io.lineDemo();
     }
 
     // Read Write bytes
@@ -101,6 +103,45 @@ public class IODemo {
 
     }
 
+    // Read line
+    public void lineDemo(){
+        System.out.println("====Line Demo====");
+        String line = null;
+        try {
+            // Method 1 : BufferedReader + FileReader
+            BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/iodemo/data.txt"));
+
+            while((line = reader.readLine()) != null){
+                System.out.println(line);
+            }
+
+            reader.close();
+
+
+            // Method 2: BufferedReader + FileInputStream
+            FileInputStream fis = new FileInputStream("src/main/resources/iodemo/data.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(fis);
+            reader = new BufferedReader(inputStreamReader);
+            while((line = reader.readLine()) != null){
+                System.out.println(line);
+            }
+
+            reader.close();
+
+            // Method 3: Java 1.7 Files.newBufferedReader()
+            File file = new File("src/main/resources/iodemo/data.txt");
+            reader = Files.newBufferedReader(file.toPath());
+
+            // Method 4: Java 1.8
+            Files.lines(new File("src/main/resources/iodemo/data.txt").toPath()).map(s -> s.trim())
+                    .filter(s -> s.startsWith("h"))
+                            .forEach(System.out::println);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static class Student implements Serializable{
         String name;
         int age;
@@ -110,5 +151,6 @@ public class IODemo {
             this.age = age;
         }
     }
+
 }
 

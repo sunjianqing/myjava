@@ -2,6 +2,9 @@ package com.jianqing.interview.leetcode16;
 
 /**
  * Created by jianqingsun on 12/15/16.
+ *
+ * For example, given [1,2,3,4], return [24,12,8,6].
+ *
  */
 public class ProductofArrayExceptSelf_238 implements Solution {
     @Override
