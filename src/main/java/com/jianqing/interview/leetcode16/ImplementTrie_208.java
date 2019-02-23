@@ -10,7 +10,6 @@ import java.util.HashMap;
 public class ImplementTrie_208 {
 }
 
-
 class TrieNode {
     // Initialize your data structure here.
     HashMap<Character, TrieNode> children = new HashMap<Character, TrieNode>();
