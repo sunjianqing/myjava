@@ -8,12 +8,12 @@ package com.jianqing.interview.classic;
  */
 public class UnionFind {
     int count;
-    int[] id;
+    int[] father;
 
     public UnionFind(int n) {
-        id = new int[n];
+        father = new int[n];
         for (int i = 0; i < n; i++) { // 初始化， 有n个联通分量
-            id[i] = i;
+            father[i] = i;
         }
     }
 
@@ -23,17 +23,17 @@ public class UnionFind {
 
     // 查找所属联通分量
     public int find(int x) {
-        return id[x];
+        return father[x];
     }
 
     public void union(int p, int q) {
-        int pid = id[p];
-        int qid = id[q];
+        int rootP = find(p);
+        int rootQ = find(q);
 
-        for (int i = 0; i < id.length; i++) {
-            if (id[i] == pid) {
+        for (int i = 0; i < father.length; i++) {
+            if (father[i] == rootP) {
                 // 遍历, 把所有id与p相同的元素都与q连接(id置为相同)
-                id[i] = qid;
+                father[i] = rootQ;
             }
         }
 
@@ -65,11 +65,11 @@ class QuickUnionFind {
     public void union(int p, int q)
     {
         // Give p and q the same root.
-        int pRoot = find(p);
-        int qRoot = find(q);
-        if (pRoot == qRoot)
+        int rootP = find(p);
+        int rootQ = find(q);
+        if (rootP == rootQ)
             return;
-        id[pRoot] = qRoot;  // 将一颗树(即一个组)变成另外一课树(即一个组)的子树
+        id[rootP] = rootQ;  // 将一颗树(即一个组)变成另外一课树(即一个组)的子树
         count--;
     }
 }
