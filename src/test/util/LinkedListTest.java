@@ -1,6 +1,7 @@
 package util;
 
-import com.jianqing.interview.leetcode.ListNode;
+
+import com.jianqing.interview.base.ListNode;
 
 import java.util.LinkedList;
 

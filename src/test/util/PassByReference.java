@@ -1,5 +1,7 @@
 package util;
 
+import com.jianqing.interview.base.TreeNode;
+
 /**
  * Created by jianqsun on 7/28/14.
  */
