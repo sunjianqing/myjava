@@ -8,8 +8,18 @@ package com.jianqing.interview.leetcode16;
  * For example,
  * Given [5, 7, 7, 8, 8, 10] and target value 8,
  * return [3, 4].
+ *
+ * binary search find both left and right bound
  */
 public class SearchForARange_34 {
+
+    public static void main(String[] args) {
+        SearchForARange_34 sfr = new SearchForARange_34();
+        int[] nums = new int[]{1,2,2,3,3};
+        int target = 4;
+        System.out.println(sfr.binarySearchLastOne(nums, target));
+    }
+
     public int[] searchRange(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
             return new int[]{-1, -1};
@@ -82,4 +92,17 @@ public class SearchForARange_34 {
 
         return res;
     }
+
+    private int binarySearchLastOne(int[] nums, int target) {
+        int low = 0;
+        int high = nums.length - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (target < nums[mid]) high = mid - 1;
+            else low = mid + 1;
+        }
+        return high;
+    }
+
+
 }

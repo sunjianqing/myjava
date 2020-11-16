@@ -4,6 +4,19 @@ import java.util.Arrays;
 
 /**
  * Created by jianqing_sun on 3/7/17.
+ *
+ * 从后往前找， 找到第一个打破上升序的位置i， 然后在i之后的位置找第一个比a[i]大的数，替换掉，
+ * 然后把i之后的reverse 下
+ *
+ * 比如
+ * 1，2，4，6，5，3
+ * 先找到4
+ * 然后4跟5替换
+ * 变成 1 2 5 6 4 3
+ * 然后把5之后的序列 6 4 3 reverse 掉
+ * 所以最后是
+ * 1 2 5 3 4 6
+ *
  */
 public class NextPermutation_31 {
 

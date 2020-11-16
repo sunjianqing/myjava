@@ -31,6 +31,11 @@ public class DivideTwoIntegers_29 {
             pDividend -= (pDivisor << (numShift - 1));
         }
 
+        /**
+         * Find sign could be like this
+         *
+         * int sign = (dividend < 0) ^ (diviso < 0)
+         */
         if ((dividend > 0 && divisor > 0) || (dividend < 0 && divisor < 0)) {
             return result;
         } else {
