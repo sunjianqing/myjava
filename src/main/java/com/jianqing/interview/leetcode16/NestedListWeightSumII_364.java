@@ -167,6 +167,7 @@ public class NestedListWeightSumII_364 {
 
     private int maxDepth(List<NestedInteger> list, int depth) {
         int max = depth;
+
         if (!list.isEmpty()) {
             for (NestedInteger n : list) {
                 if (!n.isInteger()) {

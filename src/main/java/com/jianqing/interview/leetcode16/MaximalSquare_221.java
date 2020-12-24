@@ -3,6 +3,11 @@ package com.jianqing.interview.leetcode16;
 
 /**
  * Created by jianqing_sun on 5/24/17.
+ *
+ * 题目
+ * 找一个 0 1 矩阵里， 最大的全是1的square
+ *
+ * dp
  */
 public class MaximalSquare_221 {
     public static void main(String[] args) {

@@ -30,6 +30,7 @@ public class LetterCombinationsofaPhoneNumber_17 {
 
 
     public List<String> letterCombinations(String digits) {
+
         Map<Character, List<Character>> dict = new HashMap<>();
 
         dict.put('2', Arrays.asList('a', 'b', 'c'));
@@ -72,4 +73,37 @@ public class LetterCombinationsofaPhoneNumber_17 {
         return;
 
     }
+
+    // 二刷
+    public List<String> letterCombinations20(String digits) {
+
+        if(digits == null || digits.length() == 0)
+            return new ArrayList<>();
+
+        List<String> res = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+
+        dfs(digits, res, 0, sb);
+        return res;
+    }
+
+    public void dfs(String digits, List<String> res, int start, StringBuilder sb) {
+        List<String> dicts = Arrays.asList(new String[]{"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"});
+        if (start == digits.length()) {
+            res.add(sb.toString());
+            return;
+        }
+
+
+        int num = Character.getNumericValue(digits.charAt(start));
+        String cur = dicts.get(num);
+
+        for (int j = 0; j < cur.length(); j++) {
+            sb.append(cur.charAt(j));
+            dfs(digits, res, start+1, sb);
+            sb.deleteCharAt(sb.length() - 1);
+        }
+
+    }
+
 }

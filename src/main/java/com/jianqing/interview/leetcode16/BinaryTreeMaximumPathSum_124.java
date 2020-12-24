@@ -11,6 +11,9 @@ import com.jianqing.interview.base.TreeNode;
  * 1 是以root 为起点的
  * 2 是经过root的 左右 path 一起的
  * 注意， 如果左右路径有负的， 就取0
+ *
+ *
+ * 记住！！！ helper 回来的不是子问题的解，是子问题的一个单边path的值！全局解是在递归过程中更新的！
  */
 public class BinaryTreeMaximumPathSum_124 {
 

@@ -2,6 +2,7 @@ package com.jianqing.interview.leetcode18;
 
 /**
  * Longest Palindromic Substring
+ * DP
  */
 public class lc_5 {
 

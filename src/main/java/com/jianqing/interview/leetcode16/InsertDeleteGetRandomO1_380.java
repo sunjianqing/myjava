@@ -1,7 +1,7 @@
 package com.jianqing.interview.leetcode16;
 
 /**
- * Created by jianqingsun on 1/20/18.
+ * Created by jianqing sun on 1/20/18.
  *
  * Design a data structure that supports all following operations in average O(1) time.
 

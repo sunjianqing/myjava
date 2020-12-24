@@ -5,6 +5,8 @@ import java.util.*;
 /**
  * Created by jianqing_sun on 6/23/17.
  * 分层 BFS， 直到找到endword
+ *
+ * 优化： 双向BFS
  */
 public class WordLadder_127 {
     public static void main(String[] args) {

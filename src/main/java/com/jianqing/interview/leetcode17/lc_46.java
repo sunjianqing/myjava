@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Created by jianqing_sun on 11/10/17.
+ * Permutations
  */
 public class lc_46 {
 

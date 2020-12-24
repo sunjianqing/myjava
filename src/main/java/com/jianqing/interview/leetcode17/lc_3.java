@@ -1,6 +1,8 @@
 package com.jianqing.interview.leetcode17;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -12,20 +14,28 @@ import java.util.Set;
  */
 public class lc_3 {
     public int lengthOfLongestSubstring(String s) {
-        int i = 0, j = 0, max = 0;
-        Set<Character> set = new HashSet<>();
-
-        while (j < s.length()) {
-            if (!set.contains(s.charAt(j))) {
-                set.add(s.charAt(j++));
-                max = Math.max(max, set.size());
-            } else {
-                set.remove(s.charAt(i++));
-            }
+        if (s == null || s.length() ==0) {
+            return 0;
         }
 
+        int start = 0, end = 0, max = 0;
+        String longestStr = "";
+        Map<Character, Integer> map = new HashMap<>();
+        for (; end < s.length(); end++) {
+            if (map.containsKey(s.charAt(end))) {
+                start = map.get(s.charAt(end)) + 1; // 上一次出现的地方加1
+                end = start;
+                map.clear();
+                map.put(s.charAt(start), start);
+            }
+            else {
+                map.put(s.charAt(end), end);
+                if (end - start + 1 > max) {
+                    max = end - start + 1;
+                    longestStr = s.substring(start, end + 1);
+                }
+            }
+        }
         return max;
     }
-
-
 }

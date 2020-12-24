@@ -1,4 +1,4 @@
-package com.jianqing.interview.google;
+package com.jianqing.interview.company.Google;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -2,6 +2,11 @@ package com.jianqing.interview.leetcode16;
 
 /**
  * Created by jianqing_sun on 4/24/17.
+ *
+ * Jump Game 55
+ * 贪心
+ * 一遍扫描，看每步可以到达的最远距离， 记住那个距离， 如果接下来的点可以到达的距离超过最远距离， 就更新最远距离
+ * 如果最远距离比最后一个元素大， 说明可达
  */
 public class JumpGame_55 {
 

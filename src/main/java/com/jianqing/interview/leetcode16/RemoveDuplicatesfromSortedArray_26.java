@@ -2,6 +2,9 @@ package com.jianqing.interview.leetcode16;
 
 /**
  * Created by jianqingsun on 8/16/17.
+ *
+ * Remove Duplicates from Sorted Array
+ *
  */
 public class RemoveDuplicatesfromSortedArray_26 {
     public int removeDuplicates(int[] nums) {

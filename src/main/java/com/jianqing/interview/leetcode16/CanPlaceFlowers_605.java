@@ -3,7 +3,7 @@ package com.jianqing.interview.leetcode16;
 /**
  * Created by jianqing_sun on 3/20/18.
  * <p>
- * 贪心， check 当年的 i 跟 两边是不是0 或者到边界了
+ * 贪心， check 当前的 i 跟 两边是不是0 或者到边界了
  */
 public class CanPlaceFlowers_605 {
     public boolean canPlaceFlowers(int[] flowerbed, int n) {

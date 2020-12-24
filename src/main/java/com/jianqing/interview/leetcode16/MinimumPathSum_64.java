@@ -2,6 +2,8 @@ package com.jianqing.interview.leetcode16;
 
 /**
  * Created by jianqingsun on 1/20/17.
+ *
+ * DP
  */
 public class MinimumPathSum_64 implements Solution {
     @Override

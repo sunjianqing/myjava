@@ -8,6 +8,11 @@ import java.util.Stack;
  * Created by jianqing_sun on 1/31/18.
  *
  * Code passed online Judge
+ *
+ * Binary search tree iterator
+ *
+ * call next() 的时候，如果当前node 有右子树，就把右child放进去， 然后一路找left放进去， 直到为空
+ * hasnext 直接返回stack 是否为空
  */
 public class lc_173 {
 

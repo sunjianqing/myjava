@@ -8,7 +8,12 @@ public class MultiplyStrings_43 {
     public String multiply(String num1, String num2) {
         int m = num1.length(), n = num2.length();
         // m , n 位相乘， 最多m + n 位
-
+        /**
+         *   1 2 3    n
+         * X 4 5 6    m
+         *
+         * 注意loop的时候， 外面是被乘数，因为每一位都得跟 1 2 3 相乘
+         */
         int[] pos = new int[m + n];
 
         for(int i = m - 1; i >= 0; i--) {

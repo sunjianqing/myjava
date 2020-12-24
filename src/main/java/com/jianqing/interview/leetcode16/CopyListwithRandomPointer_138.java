@@ -2,6 +2,9 @@ package com.jianqing.interview.leetcode16;
 
 /**
  * Created by jianqingsun on 6/5/17.
+ * 应该跟clone graph 一个思路，搞个hashmap 存映射
+ * 去看 CloneGraph_133
+ *
  */
 public class CopyListwithRandomPointer_138 {
 

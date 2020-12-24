@@ -1,4 +1,4 @@
-package com.jianqing.interview.facebook;
+package com.jianqing.interview.facebook.lc20;
 
 import com.jianqing.interview.base.TreeNode;
 

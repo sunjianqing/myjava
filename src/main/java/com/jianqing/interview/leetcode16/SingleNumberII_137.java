@@ -28,4 +28,22 @@ public class SingleNumberII_137 implements Solution {
         }
         return result;
     }
+
+
+    // 二刷
+    public int singleNumber2(int[] A) {
+        int res = 0;
+
+        int[] bits = new int[32];
+
+        for (int i = 0; i < 32; i++) {
+            for (int j = 0; j < A.length; j++) {
+                if (((A[j] >> i) & 1) == 1) {
+                    bits[i] ++;
+                }
+            }
+            res |=((bits[i] % 3) << i);
+        }
+        return res;
+    }
 }

@@ -4,6 +4,9 @@ import com.jianqing.interview.base.TreeNode;
 
 /**
  * Created by jianqingsun on 12/4/16.
+ *
+ * Lowest Common Ancestor of a Binary Search Tree
+ *
  */
 public class LowestCommonAncestorofaBinarySearchTree_235 implements Solution {
     @Override

@@ -4,7 +4,10 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
+ * Sliding Window Maximum
  * Created by jianqingsun on 8/5/17.
+ *
+ * 创建一个单调队列 （monotonic queue）, 就是始终保持队头是最大的，如果新进来一个k比对尾大的，那就可以一路删除到队列中比k大的位置
  */
 public class SlidingWindowMaximum_239 {
     public int[] maxSlidingWindow(int[] a, int k) {

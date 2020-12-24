@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by jianqingsun on 3/6/18.
  * <p>
- * Given a nested list of integers, return the sum of all integers in the list weighted by their depth.
+ * Given a ne sted list of integers, return the sum of all integers in the list weighted by their depth.
  * <p>
  * Each element is either an integer, or a list -- whose elements may also be integers or other lists.
  * <p>

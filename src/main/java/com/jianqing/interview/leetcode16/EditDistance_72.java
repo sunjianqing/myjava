@@ -25,7 +25,7 @@ public class EditDistance_72 {
                     dp[i][j] = dp[i-1][j-1];
                 }
                 else {
-                    dp[i][j] = Math.min(dp[i-1][j-1] + 1 , Math.min(dp[i-1][j] + 1, dp[i][j-1]+1));
+                    dp[i][j] = Math.min(dp[i-1][j-1] + 1 /*update*/ , Math.min(dp[i-1][j] + 1 /*delete*/, dp[i][j-1]+1 /*add*/));
                 }
             }
         }

@@ -2,6 +2,10 @@ package com.jianqing.interview.leetcode16;
 
 /**
  * Created by jianqingsun on 8/15/17.
+ * 题目要merge numbs 2 到 1 里
+ * merge nums2 into nums1
+ *
+ * 从后往前merge
  */
 public class MergeSortedArray_88 {
     public void merge(int[] nums1, int m, int[] nums2, int n) {

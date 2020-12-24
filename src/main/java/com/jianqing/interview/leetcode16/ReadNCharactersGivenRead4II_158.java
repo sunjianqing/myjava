@@ -4,6 +4,8 @@ package com.jianqing.interview.leetcode16;
  * Created by jianqingsun on 8/3/17.
  *
  * http://www.cnblogs.com/EdwardLiu/p/4240616.html
+ *
+ * 需要个全局变量， 记录这次读多了， 留着下次用
  */
 public class ReadNCharactersGivenRead4II_158 {
 

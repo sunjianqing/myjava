@@ -4,6 +4,13 @@ import java.util.Arrays;
 
 /**
  * Created by jianqingsun on 4/21/17.
+ *
+ * 先排序
+ *
+ * 然后 loop i
+ * 每个nums[i]， 设定 left = nums[i+1] , right 指针，一个个试
+ *
+ * O(n^2)
  */
 public class Sum3Closest_16 {
 

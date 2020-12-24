@@ -4,6 +4,10 @@ import java.util.*;
 
 /**
  * Created by jianqingsun on 6/12/17.
+ *
+ * 先clone nodes， 然后create 一个 旧node 到新node 的hashmap，
+ * 然后再loop 旧的边， 通过node的neighbors 找到旧的node，然后从map里取对应的新的node，然后build 新的边
+ *
  */
 
 class UndirectedGraphNode {

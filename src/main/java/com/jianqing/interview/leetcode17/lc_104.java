@@ -13,8 +13,8 @@ public class lc_104 {
         if (root == null)
             return 0;
 
-        int left = root.left == null ? 0 : 1 + maxDepth(root.left);
-        int right = root.right == null ? 0 : 1 + maxDepth(root.right);
+        int left = 1 + maxDepth(root.left);
+        int right = 1 + maxDepth(root.right);
         return Math.max(left, right);
     }
 

@@ -2,6 +2,12 @@ package com.jianqing.interview.leetcode18;
 
 import java.util.*;
 
+/**
+ * 桶排序
+ * 或者
+ * PriorityQueue
+ */
+
 public class lc_347 {
     public static void main(String[] args) {
         lc_347 lc = new lc_347();

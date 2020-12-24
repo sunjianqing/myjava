@@ -5,10 +5,12 @@ import java.util.List;
 
 /**
  * Created by jianqingsun on 5/12/17.
+ * Word Break
+ * DP
  *
  * dp[i] 表示 i 长度的子串能不能被 segmented ， 所以dp[i] 等于 所有小于i 的 j 的子串 dp[i-j] 跟 从 i-j 到i 的 substring 在dict 取与
  */
-public class    WordBreak {
+public class WordBreak {
     public boolean wordBreak(String s, List<String> wordDict) {
         if (s.isEmpty()) {
             return true;

@@ -17,6 +17,7 @@ import java.util.*;
  ]
  Note: All inputs will be in lower-case.
 
+ 解法， 每一个词自己排个序，然后丢进hashmap判断
  */
 public class GroupAnagrams_49 {
 
